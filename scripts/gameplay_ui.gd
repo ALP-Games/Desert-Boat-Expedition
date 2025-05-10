@@ -18,4 +18,4 @@ func _ready() -> void:
 
 
 func _update_time_label(day_night_cycle: DayNightCycle) -> void:
-	time_label.text = TIME_FORMAT % [day_night_cycle.current_hours, day_night_cycle.current_minutes]
+	time_label.text = TIME_FORMAT % [day_night_cycle.current_hour, day_night_cycle.current_minutes]

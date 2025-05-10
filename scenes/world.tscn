@@ -36,7 +36,9 @@ script = ExtResource("1_k0juu")
 
 [node name="DayNightCycle" type="Node" parent="."]
 script = ExtResource("2_71j4m")
-current_hours = 13
+morning_hour = 6
+night_hour = 22
+current_hour = 13
 current_minutes = 45
 metadata/_custom_type_script = "uid://bh5v78aga41pd"
 
