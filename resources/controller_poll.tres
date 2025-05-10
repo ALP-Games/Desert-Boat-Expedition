@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ControllerPollResource" load_steps=2 format=3 uid="uid://bh7fq0jhn3db5"]
+
+[ext_resource type="Script" uid="uid://dtdqfjvj7yr1l" path="res://addons/godot_extension_core_gdscript/Generated/Input/controller_poll_resource.gd" id="1_nl8k7"]
+
+[resource]
+script = ExtResource("1_nl8k7")
+_device_id = 0
+_axis_deadzone = 0.1
+_acceleration_axis = 1
+_turn_axis = 0
+metadata/_custom_type_script = "uid://dtdqfjvj7yr1l"

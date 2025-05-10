@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyjkapqiqydud"]
+
+[ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="1_nnsk1"]
+
+[sub_resource type="Environment" id="Environment_e5uuo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
+albedo_color = Color(1, 0.893037, 0.651846, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nnsk1"]
+material = SubResource("StandardMaterial3D_e5uuo")
+size = Vector2(500, 500)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rwgxs"]
+points = PackedVector3Array(-250, 0, -250, -250, 0, 250, 250, 0, -250, 250, 0, 250)
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e5uuo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -0.380425, 0.924812, 0, -0.924812, -0.380425, 0, 21.9425, 0)
+shadow_enabled = true
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_nnsk1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_rwgxs")
+
+[node name="Ship" parent="." instance=ExtResource("1_nnsk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.323, 0.499999, 215.985)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.658952, 0.752185, 0, -0.752185, 0.658952, 154.227, 86.9788, 254.905)

@@ -1,0 +1,22 @@
+{
+	"$local_poller_config": {
+		"$caching_func": "$physics_process"
+	},
+	"$controller_config": {
+		"$comment": ["TODO: make separate deadzone variables for seperate joysticks",
+					 "TODO: make separate sensitivities for x and y axis"],
+		"$deadzone_radius": 0.1
+	},
+	"$inputs": {
+		"acceleration": {
+			"$type": "float",
+			"$keyboard_inputs": { "forward": ["KEY_W"], "back": ["KEY_S"]},
+			"$controller_axes": { "axis": "JOY_AXIS_LEFT_Y"}
+		},
+		"turn": {
+			"$type": "float",
+			"$keyboard_inputs": { "left": ["KEY_A"], "right": ["KEY_D"]},
+			"$controller_axes": { "axis": "JOY_AXIS_LEFT_X"}
+		}
+	}
+}

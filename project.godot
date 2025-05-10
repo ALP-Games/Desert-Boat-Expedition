@@ -8,8 +8,31 @@
 
 config_version=5
 
+[Extension Core]
+
+"General/Generated Output"="res://addons/godot_extension_core_gdscript/Generated/"
+"Controls/Configuration/Input Configuration"="res://configs/input_configuration.json"
+
 [application]
 
 config/name="DesertBoatExpedition"
+run/main_scene="uid://cyjkapqiqydud"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_extension_core_gdscript/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://addons/godot_extension_core_gdscript/": "blue",
+"res://addons/godot_extension_core_gdscript/Generated/": "red"
+}

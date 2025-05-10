@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MkbPollResource" load_steps=2 format=3 uid="uid://b7heq3x6sqytr"]
+
+[ext_resource type="Script" uid="uid://ce8px3dgffk4d" path="res://addons/godot_extension_core_gdscript/Generated/Input/mkb_poll_resource.gd" id="1_xafqk"]
+
+[resource]
+script = ExtResource("1_xafqk")
+_acceleration_forward = Array[int]([-2, 87])
+_acceleration_back = Array[int]([-2, 83])
+_turn_left = Array[int]([-2, 65])
+_turn_right = Array[int]([-2, 68])
+metadata/_custom_type_script = "uid://ce8px3dgffk4d"
