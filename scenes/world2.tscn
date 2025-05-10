@@ -1,0 +1,165 @@
+[gd_scene load_steps=24 format=3 uid="uid://hrt8p7fyb26p"]
+
+[ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://scripts/world.gd" id="1_7d436"]
+[ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://scripts/components/day_night_cycle.gd" id="2_1te1p"]
+[ext_resource type="Script" uid="uid://cw15j67cajru2" path="res://scripts/components/day_orbit_component.gd" id="3_jlm5j"]
+[ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="4_q5uyg"]
+[ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="5_r0a0i"]
+[ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://scenes/gameplay_ui.tscn" id="6_hvnw1"]
+[ext_resource type="Texture2D" uid="uid://bag3qa6jj7arb" path="res://Textures/pa_bgTexture_sand.png" id="7_jlm5j"]
+[ext_resource type="Texture2D" uid="uid://djs6vjuyh1aco" path="res://Textures/pa_bgTexture_sand_normalMap.png" id="8_q5uyg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
+
+[sub_resource type="Sky" id="Sky_4wyf3"]
+sky_material = SubResource("ProceduralSkyMaterial_rwgxs")
+
+[sub_resource type="Environment" id="Environment_e5uuo"]
+background_mode = 2
+sky = SubResource("Sky_4wyf3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
+albedo_color = Color(1, 0.893037, 0.651846, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nnsk1"]
+material = SubResource("StandardMaterial3D_e5uuo")
+size = Vector2(500, 500)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rwgxs"]
+points = PackedVector3Array(-250, 0, -250, -250, 0, 250, 250, 0, -250, 250, 0, 250)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k0juu"]
+top_radius = 10.0
+bottom_radius = 10.0
+height = 100.0
+
+[sub_resource type="Gradient" id="Gradient_7d436"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1te1p"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jlm5j"]
+seamless = true
+color_ramp = SubResource("Gradient_7d436")
+noise = SubResource("FastNoiseLite_1te1p")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_q5uyg"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.87,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"height_blending": true,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise3_scale": 0.225,
+&"noise_texture": SubResource("NoiseTexture2D_jlm5j"),
+&"projection_angular_division": 2.0,
+&"projection_threshold": 0.8,
+&"world_space_normal_blend": true
+}
+world_background = 0
+show_region_grid = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0a0i"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_hvnw1"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_r0a0i")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_r0a0i"]
+name = "pa_bgTexture_sand"
+albedo_color = Color(0.756156, 0.731273, 0.568602, 1)
+albedo_texture = ExtResource("7_jlm5j")
+normal_texture = ExtResource("8_q5uyg")
+normal_depth = 0.553
+roughness = -0.632
+uv_scale = 0.155
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_lo3jn"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_hvnw1")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_r0a0i")])
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_7d436")
+
+[node name="DayNightCycle" type="Node" parent="."]
+script = ExtResource("2_1te1p")
+current_minutes = 45
+metadata/_custom_type_script = "uid://bh5v78aga41pd"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e5uuo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.477419, 0.587463, 0.653421, 0.776046, -0.630676, 0, 0.412097, 0.507085, -0.756995, 0, 21.9425, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 250.0
+
+[node name="DayOrbitComponent" type="Node" parent="WorldEnvironment/DirectionalLight3D"]
+script = ExtResource("3_jlm5j")
+metadata/_custom_type_script = "uid://cw15j67cajru2"
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_nnsk1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_rwgxs")
+
+[node name="Ship" parent="." instance=ExtResource("4_q5uyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.323, 11.4617, 215.985)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("object_to_follow")]
+transform = Transform3D(1, 0, 0, 0, 0.658952, 0.752185, 0, -0.752185, 0.658952, 213.323, 41.0465, 238.584)
+script = ExtResource("5_r0a0i")
+object_to_follow = NodePath("../Ship")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.94, 48, 156.417)
+mesh = SubResource("CylinderMesh_k0juu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameplayUI" parent="CanvasLayer" instance=ExtResource("6_hvnw1")]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://TerrainRes"
+material = SubResource("Terrain3DMaterial_q5uyg")
+assets = SubResource("Terrain3DAssets_lo3jn")
+show_grid = true
+show_region_grid = true
+top_level = true
+metadata/_edit_lock_ = true
