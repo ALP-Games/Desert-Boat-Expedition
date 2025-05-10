@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyjkapqiqydud"]
+[gd_scene load_steps=10 format=3 uid="uid://cyjkapqiqydud"]
 
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="2_rwgxs"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
+
+[sub_resource type="Sky" id="Sky_4wyf3"]
+sky_material = SubResource("ProceduralSkyMaterial_rwgxs")
+
 [sub_resource type="Environment" id="Environment_e5uuo"]
+background_mode = 2
+sky = SubResource("Sky_4wyf3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
 albedo_color = Color(1, 0.893037, 0.651846, 1)
@@ -15,14 +22,20 @@ size = Vector2(500, 500)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rwgxs"]
 points = PackedVector3Array(-250, 0, -250, -250, 0, 250, 250, 0, -250, 250, 0, 250)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_k0juu"]
+top_radius = 10.0
+bottom_radius = 10.0
+height = 100.0
+
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e5uuo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -0.380425, 0.924812, 0, -0.924812, -0.380425, 0, 21.9425, 0)
+transform = Transform3D(-0.0142254, 0.985775, 0.16747, 0.198856, -0.161352, 0.966655, 0.979925, 0.0470535, -0.193732, 0, 21.9425, 0)
 shadow_enabled = true
+directional_shadow_max_distance = 250.0
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_nnsk1")
@@ -39,3 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.323, 0.499999, 215.985)
 transform = Transform3D(1, 0, 0, 0, 0.658952, 0.752185, 0, -0.752185, 0.658952, 213.323, 86.979, 291.667)
 script = ExtResource("2_rwgxs")
 object_to_follow = NodePath("../Ship")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.94, 48, 156.417)
+mesh = SubResource("CylinderMesh_k0juu")
