@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://dawi8sppkthck"]
+[gd_scene load_steps=15 format=3 uid="uid://dawi8sppkthck"]
 
 [ext_resource type="Script" uid="uid://dqcp7anvrr2a5" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
 [ext_resource type="Script" uid="uid://c0674h4ynhvmk" path="res://addons/godot_extension_core_gdscript/Generated/Input/iinput_polling_resource.gd" id="2_tfsc7"]
-[ext_resource type="Resource" uid="uid://bh7fq0jhn3db5" path="res://resources/controller_poll.tres" id="3_gudjc"]
-[ext_resource type="Resource" uid="uid://b7heq3x6sqytr" path="res://resources/mkb_poll.tres" id="4_7j21i"]
+[ext_resource type="Resource" uid="uid://bh7fq0jhn3db5" path="res://resources/controls/controller_poll.tres" id="3_gudjc"]
+[ext_resource type="Resource" uid="uid://b7heq3x6sqytr" path="res://resources/controls/mkb_poll.tres" id="4_7j21i"]
 [ext_resource type="Script" uid="uid://cms5oajqm81q0" path="res://scripts/components/ship_movement.gd" id="5_gudjc"]
 [ext_resource type="ArrayMesh" uid="uid://dcsssn342eoeb" path="res://Assets/meshs/boat/Sail_Cube_001.res" id="6_itrim"]
 [ext_resource type="ArrayMesh" uid="uid://c3qy52vxjdbmd" path="res://Assets/meshs/boat/Sail_Cube_002.res" id="7_bseor"]
 [ext_resource type="ArrayMesh" uid="uid://bysdgemp6tao0" path="res://Assets/meshs/boat/Sail_Cube_004.res" id="8_tlr80"]
 [ext_resource type="ArrayMesh" uid="uid://b5gkgr0ghx6a4" path="res://Assets/meshs/boat/Sail_Sphere.res" id="9_03y04"]
+[ext_resource type="Script" uid="uid://vpefl0oijica" path="res://scripts/components/water_storage.gd" id="10_bseor"]
+[ext_resource type="Script" uid="uid://dq4fcyjmvce0i" path="res://scripts/components/water_storage_interacor.gd" id="11_tlr80"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gudjc"]
 rough = true
@@ -17,11 +19,24 @@ rough = true
 radius = 2.00427
 height = 9.99799
 
-[node name="Ship" type="RigidBody3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_tlr80"]
+radius = 8.0
+
+[node name="Ship" type="RigidBody3D" groups=["Player"]]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 mass = 6000.0
 physics_material_override = SubResource("PhysicsMaterial_gudjc")
+max_contacts_reported = 10
+
+[node name="WaterStorageInteractor" type="Node" parent="." node_paths=PackedStringArray("interaction_range_area")]
+script = ExtResource("11_tlr80")
+interaction_range_area = NodePath("../InteractionRange")
+metadata/_custom_type_script = "uid://dq4fcyjmvce0i"
+
+[node name="WaterStorage" type="Node" parent="."]
+script = ExtResource("10_bseor")
+metadata/_custom_type_script = "uid://vpefl0oijica"
 
 [node name="LocalInputPollComponent" type="Node" parent="."]
 script = ExtResource("1_q631a")
@@ -51,3 +66,9 @@ mesh = ExtResource("8_tlr80")
 
 [node name="Sail" type="MeshInstance3D" parent="ShipModel"]
 mesh = ExtResource("9_03y04")
+
+[node name="InteractionRange" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionRange"]
+shape = SubResource("SphereShape3D_tlr80")

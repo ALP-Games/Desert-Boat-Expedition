@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://buuj7l6edb5o6"]
+
+[ext_resource type="Script" uid="uid://vpefl0oijica" path="res://scripts/components/water_storage.gd" id="1_23g5j"]
+[ext_resource type="Script" uid="uid://bnpgov71qlgyb" path="res://scripts/oasis.gd" id="1_ace4b"]
+[ext_resource type="Script" uid="uid://by2w5c5t0xpu4" path="res://scripts/icomponent_initializer.gd" id="2_okgem"]
+[ext_resource type="Script" uid="uid://vnoephrpf5s1" path="res://scripts/water_storage_initializer.gd" id="3_coqjv"]
+
+[sub_resource type="Resource" id="Resource_k34wa"]
+script = ExtResource("3_coqjv")
+water_capacity = 100
+starting_water = 50
+metadata/_custom_type_script = "uid://vnoephrpf5s1"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dd2vt"]
+radius = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23g5j"]
+albedo_color = Color(0.913725, 0.501961, 0.333333, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ace4b"]
+material = SubResource("StandardMaterial3D_23g5j")
+top_radius = 5.0
+bottom_radius = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3g2sa"]
+albedo_color = Color(0.637437, 0.558523, 0.474091, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_okgem"]
+material = SubResource("StandardMaterial3D_3g2sa")
+top_radius = 15.0
+bottom_radius = 15.0
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_coqjv"]
+radius = 15.0
+
+[node name="Oasis" type="Node3D"]
+script = ExtResource("1_ace4b")
+component_initializers = Array[ExtResource("2_okgem")]([SubResource("Resource_k34wa")])
+
+[node name="WaterStorage" type="Node" parent="."]
+script = ExtResource("1_23g5j")
+metadata/_custom_type_script = "uid://vpefl0oijica"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_dd2vt")
+
+[node name="WellOrWhatever" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_ace4b")
+
+[node name="FloorOrSomething" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_okgem")
+
+[node name="OasisInteractionArea" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OasisInteractionArea"]
+shape = SubResource("SphereShape3D_coqjv")

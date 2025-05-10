@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyjkapqiqydud"]
+[gd_scene load_steps=15 format=3 uid="uid://cyjkapqiqydud"]
 
 [ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://scripts/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="1_nnsk1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://scenes/gameplay_ui.tscn" id="3_4wyf3"]
 [ext_resource type="Script" uid="uid://cw15j67cajru2" path="res://scripts/components/day_orbit_component.gd" id="3_qfnet"]
+[ext_resource type="PackedScene" uid="uid://buuj7l6edb5o6" path="res://scenes/oasis.tscn" id="7_i7141"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
 
@@ -57,9 +58,9 @@ metadata/_custom_type_script = "uid://cw15j67cajru2"
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_nnsk1")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+[node name="Ground" type="StaticBody3D" parent="Ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground"]
 shape = SubResource("ConvexPolygonShape3D_rwgxs")
 
 [node name="Ship" parent="." instance=ExtResource("1_nnsk1")]
@@ -77,3 +78,6 @@ mesh = SubResource("CylinderMesh_k0juu")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameplayUI" parent="CanvasLayer" instance=ExtResource("3_4wyf3")]
+
+[node name="Oasis" parent="." instance=ExtResource("7_i7141")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.239, 0.999996, 154.987)
