@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyjkapqiqydud"]
+[gd_scene load_steps=14 format=3 uid="uid://cyjkapqiqydud"]
 
+[ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://scripts/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://scripts/components/day_night_cycle.gd" id="2_71j4m"]
 [ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://scenes/gameplay_ui.tscn" id="3_4wyf3"]
+[ext_resource type="Script" uid="uid://cw15j67cajru2" path="res://scripts/components/day_orbit_component.gd" id="3_qfnet"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
 
@@ -28,14 +32,25 @@ bottom_radius = 10.0
 height = 100.0
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_k0juu")
+
+[node name="DayNightCycle" type="Node" parent="."]
+script = ExtResource("2_71j4m")
+current_hours = 13
+current_minutes = 45
+metadata/_custom_type_script = "uid://bh5v78aga41pd"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e5uuo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.0142254, 0.985775, 0.16747, 0.198856, -0.161352, 0.966655, 0.979925, 0.0470535, -0.193732, 0, 21.9425, 0)
+transform = Transform3D(0.477419, 0.587463, 0.653421, 0.776046, -0.630676, 0, 0.412097, 0.507085, -0.756995, 0, 21.9425, 0)
 shadow_enabled = true
 directional_shadow_max_distance = 250.0
+
+[node name="DayOrbitComponent" type="Node" parent="WorldEnvironment/DirectionalLight3D"]
+script = ExtResource("3_qfnet")
+metadata/_custom_type_script = "uid://cw15j67cajru2"
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_nnsk1")
@@ -56,3 +71,7 @@ object_to_follow = NodePath("../Ship")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.94, 48, 156.417)
 mesh = SubResource("CylinderMesh_k0juu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameplayUI" parent="CanvasLayer" instance=ExtResource("3_4wyf3")]

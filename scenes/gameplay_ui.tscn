@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw4savqry1x4e"]
+
+[ext_resource type="Script" uid="uid://d2f03qtum3hdf" path="res://scripts/gameplay_ui.gd" id="1_nm0ya"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fno8f"]
+font_size = 44
+
+[node name="GameplayUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_nm0ya")
+
+[node name="MarginContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_right = 56.5
+offset_bottom = 61.0
+grow_horizontal = 2
+
+[node name="Time" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "24:00"
+label_settings = SubResource("LabelSettings_fno8f")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
