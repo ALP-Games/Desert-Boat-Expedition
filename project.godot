@@ -40,3 +40,7 @@ folder_colors={
 "res://addons/godot_extension_core_gdscript/": "blue",
 "res://addons/godot_extension_core_gdscript/Generated/": "red"
 }
+
+[global_group]
+
+Player="group for the player object"
