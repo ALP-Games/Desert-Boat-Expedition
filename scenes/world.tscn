@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyjkapqiqydud"]
+[gd_scene load_steps=7 format=3 uid="uid://cyjkapqiqydud"]
 
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="2_rwgxs"]
 
 [sub_resource type="Environment" id="Environment_e5uuo"]
 
@@ -34,5 +35,7 @@ shape = SubResource("ConvexPolygonShape3D_rwgxs")
 [node name="Ship" parent="." instance=ExtResource("1_nnsk1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.323, 0.499999, 215.985)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.658952, 0.752185, 0, -0.752185, 0.658952, 154.227, 86.9788, 254.905)
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("object_to_follow")]
+transform = Transform3D(1, 0, 0, 0, 0.658952, 0.752185, 0, -0.752185, 0.658952, 213.323, 86.979, 291.667)
+script = ExtResource("2_rwgxs")
+object_to_follow = NodePath("../Ship")
