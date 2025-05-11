@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cyjkapqiqydud"]
+[gd_scene load_steps=20 format=3 uid="uid://cyjkapqiqydud"]
 
 [ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://scripts/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="1_nnsk1"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://cw15j67cajru2" path="res://scripts/components/day_orbit_component.gd" id="3_qfnet"]
 [ext_resource type="PackedScene" uid="uid://b0qo82mla5uxw" path="res://ui/crew_overview_ui.tscn" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://buuj7l6edb5o6" path="res://scenes/oasis.tscn" id="7_i7141"]
+[ext_resource type="Script" uid="uid://bna46nv7twv8m" path="res://scripts/components/component_initializer.gd" id="9_e3hyu"]
+[ext_resource type="Script" uid="uid://by2w5c5t0xpu4" path="res://scripts/icomponent_initializer.gd" id="10_q5onr"]
+[ext_resource type="Script" uid="uid://vnoephrpf5s1" path="res://scripts/water_storage_initializer.gd" id="11_jhx03"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
 
@@ -32,6 +35,12 @@ points = PackedVector3Array(-250, 0, -250, -250, 0, 250, 250, 0, -250, 250, 0, 2
 top_radius = 10.0
 bottom_radius = 10.0
 height = 100.0
+
+[sub_resource type="Resource" id="Resource_o8fc1"]
+script = ExtResource("11_jhx03")
+water_capacity = 13360
+starting_water = 13360
+metadata/_custom_type_script = "uid://vnoephrpf5s1"
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_k0juu")
@@ -84,3 +93,8 @@ mesh = SubResource("CylinderMesh_k0juu")
 
 [node name="Oasis" parent="." instance=ExtResource("7_i7141")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.239, 0.999996, 154.987)
+
+[node name="ComponentInitializer" type="Node" parent="Oasis"]
+script = ExtResource("9_e3hyu")
+component_initializers = Array[ExtResource("10_q5onr")]([SubResource("Resource_o8fc1")])
+metadata/_custom_type_script = "uid://bna46nv7twv8m"

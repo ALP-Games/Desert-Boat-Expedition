@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CrewMember" load_steps=3 format=3 uid="uid://cmlk7gf1kj8u4"]
+
+[ext_resource type="Texture2D" uid="uid://bhv7n66pawvuy" path="res://Assets/ui/Characters/Navigator.jpg" id="1_88ilc"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew_member.gd" id="1_hp0ds"]
+
+[resource]
+script = ExtResource("1_hp0ds")
+name = "Kevin (Navigator)"
+portrait = ExtResource("1_88ilc")
+water_consumption = 800
+metadata/_custom_type_script = "uid://02hrgmpa5msp"
