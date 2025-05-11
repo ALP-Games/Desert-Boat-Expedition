@@ -1,4 +1,4 @@
-extends Node3D
+extends Area3D
 
 @export var component_initializers: Array[IComponentInitializer]
 

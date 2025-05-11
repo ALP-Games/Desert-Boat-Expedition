@@ -17,6 +17,11 @@
 			"$type": "float",
 			"$keyboard_inputs": { "left": ["KEY_A"], "right": ["KEY_D"]},
 			"$controller_axes": { "axis": "JOY_AXIS_LEFT_X"}
+		},
+		"refill": {
+			"$type": "bool",
+			"$keyboard_button": ["KEY_R"],
+			"$controller_button": ["JOY_BUTTON_A"]
 		}
 	}
 }

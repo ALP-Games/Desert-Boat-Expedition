@@ -17,3 +17,16 @@ var current_water: int = 0:
 
 static func core() -> ComponentCore:
 	return ComponentCore.new(WaterStorage)
+
+
+func get_avalible_capacity() -> int:
+	return water_capacity - current_water
+
+
+func take_out_water_amount(amount: int) -> int:
+	if amount > current_water:
+		var result := current_water
+		current_water = 0
+		return result
+	current_water -= amount
+	return amount

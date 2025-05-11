@@ -5,11 +5,14 @@
 [ext_resource type="Script" uid="uid://by2w5c5t0xpu4" path="res://scripts/icomponent_initializer.gd" id="2_okgem"]
 [ext_resource type="Script" uid="uid://vnoephrpf5s1" path="res://scripts/water_storage_initializer.gd" id="3_coqjv"]
 
-[sub_resource type="Resource" id="Resource_k34wa"]
+[sub_resource type="Resource" id="Resource_okgem"]
 script = ExtResource("3_coqjv")
-water_capacity = 100
+water_capacity = 50
 starting_water = 50
 metadata/_custom_type_script = "uid://vnoephrpf5s1"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_coqjv"]
+radius = 15.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dd2vt"]
 radius = 5.0
@@ -31,12 +34,13 @@ top_radius = 15.0
 bottom_radius = 15.0
 height = 0.1
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_coqjv"]
-radius = 15.0
-
-[node name="Oasis" type="Node3D"]
+[node name="Oasis" type="Area3D"]
+monitoring = false
 script = ExtResource("1_ace4b")
-component_initializers = Array[ExtResource("2_okgem")]([SubResource("Resource_k34wa")])
+component_initializers = Array[ExtResource("2_okgem")]([SubResource("Resource_okgem")])
+
+[node name="OasisInteractionArea" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_coqjv")
 
 [node name="WaterStorage" type="Node" parent="."]
 script = ExtResource("1_23g5j")
@@ -52,9 +56,3 @@ mesh = SubResource("CylinderMesh_ace4b")
 
 [node name="FloorOrSomething" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_okgem")
-
-[node name="OasisInteractionArea" type="Area3D" parent="."]
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OasisInteractionArea"]
-shape = SubResource("SphereShape3D_coqjv")

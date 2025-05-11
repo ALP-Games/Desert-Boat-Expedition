@@ -36,6 +36,7 @@ metadata/_custom_type_script = "uid://dq4fcyjmvce0i"
 
 [node name="WaterStorage" type="Node" parent="."]
 script = ExtResource("10_bseor")
+water_capacity = 24
 metadata/_custom_type_script = "uid://vpefl0oijica"
 
 [node name="LocalInputPollComponent" type="Node" parent="."]
