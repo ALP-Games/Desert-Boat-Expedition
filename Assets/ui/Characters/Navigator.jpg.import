@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xrk1yej103d1"
-path="res://.godot/imported/Navigator.jpg-9b623c2f96d7d32ce257bca968e195a1.ctex"
+uid="uid://b4audl7l4iopn"
+path="res://.godot/imported/Navigator.jpg-1a133613112af8e9901bd0d2b031ea30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Characters/Navigator.jpg"
-dest_files=["res://.godot/imported/Navigator.jpg-9b623c2f96d7d32ce257bca968e195a1.ctex"]
+source_file="res://Assets/ui/Characters/Navigator.jpg"
+dest_files=["res://.godot/imported/Navigator.jpg-1a133613112af8e9901bd0d2b031ea30.ctex"]
 
 [params]
 

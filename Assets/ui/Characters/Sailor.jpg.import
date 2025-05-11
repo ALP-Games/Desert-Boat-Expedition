@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dde863jext7at"
-path="res://.godot/imported/Sailor.jpg-76d5aad80682052df3547499df4974bb.ctex"
+uid="uid://dr4aosf0g44j0"
+path="res://.godot/imported/Sailor.jpg-87b92e089ba02b93e3a5a826e931147e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Characters/Sailor.jpg"
-dest_files=["res://.godot/imported/Sailor.jpg-76d5aad80682052df3547499df4974bb.ctex"]
+source_file="res://Assets/ui/Characters/Sailor.jpg"
+dest_files=["res://.godot/imported/Sailor.jpg-87b92e089ba02b93e3a5a826e931147e.ctex"]
 
 [params]
 

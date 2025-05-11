@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccq25l03hrkb0"
-path="res://.godot/imported/Mechanic.jpg-0c912f265dcf916bcf42e1bafd7697de.ctex"
+uid="uid://cnaoyuqti0c78"
+path="res://.godot/imported/Mechanic.jpg-26d0bfdd4d2a28c0ca8c8b9645927e05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Characters/Mechanic.jpg"
-dest_files=["res://.godot/imported/Mechanic.jpg-0c912f265dcf916bcf42e1bafd7697de.ctex"]
+source_file="res://Assets/ui/Characters/Mechanic.jpg"
+dest_files=["res://.godot/imported/Mechanic.jpg-26d0bfdd4d2a28c0ca8c8b9645927e05.ctex"]
 
 [params]
 

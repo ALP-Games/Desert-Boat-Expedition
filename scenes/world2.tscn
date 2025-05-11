@@ -1,15 +1,24 @@
-[gd_scene load_steps=24 format=3 uid="uid://hrt8p7fyb26p"]
+[gd_scene load_steps=25 format=3 uid="uid://hrt8p7fyb26p"]
 
 [ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://scripts/world.gd" id="1_7d436"]
 [ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://scripts/components/day_night_cycle.gd" id="2_1te1p"]
 [ext_resource type="Script" uid="uid://cw15j67cajru2" path="res://scripts/components/day_orbit_component.gd" id="3_jlm5j"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="4_q5uyg"]
 [ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="5_r0a0i"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://ui/gameplay_ui.tscn" id="6_hvnw1"]
 [ext_resource type="Texture2D" uid="uid://bag3qa6jj7arb" path="res://Textures/pa_bgTexture_sand.png" id="7_jlm5j"]
 [ext_resource type="Texture2D" uid="uid://djs6vjuyh1aco" path="res://Textures/pa_bgTexture_sand_normalMap.png" id="8_q5uyg"]
+=======
+[ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://scenes/gameplay_ui.tscn" id="6_hvnw1"]
+[ext_resource type="Texture2D" uid="uid://c7431itllior6" path="res://Textures/sand_albedo.png" id="7_jlm5j"]
+[ext_resource type="Texture2D" uid="uid://dbycmygjw6ygt" path="res://Textures/packed_normal_roughness.png" id="8_q5uyg"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
+sky_top_color = Color(0.320076, 0.450205, 0.6597, 1)
+sky_horizon_color = Color(0.570339, 0.66783, 0.763299, 1)
+sky_curve = 0.075
 
 [sub_resource type="Sky" id="Sky_4wyf3"]
 sky_material = SubResource("ProceduralSkyMaterial_rwgxs")
@@ -17,6 +26,35 @@ sky_material = SubResource("ProceduralSkyMaterial_rwgxs")
 [sub_resource type="Environment" id="Environment_e5uuo"]
 background_mode = 2
 sky = SubResource("Sky_4wyf3")
+ambient_light_source = 3
+ambient_light_color = Color(0.565525, 0.742638, 0.932849, 1)
+reflected_light_source = 2
+ssao_enabled = true
+ssil_enabled = true
+ssil_radius = 11.52
+ssil_intensity = 2.0
+glow_enabled = true
+glow_levels/1 = 4.29
+glow_levels/5 = 3.95
+glow_levels/7 = 2.38
+glow_blend_mode = 1
+fog_enabled = true
+fog_light_color = Color(0.899728, 0.829871, 0.770608, 1)
+fog_light_energy = 1.09
+fog_sun_scatter = 0.08
+fog_density = 0.0044
+fog_aerial_perspective = 0.244
+fog_sky_affect = 0.0
+fog_depth_begin = 33.0
+fog_depth_end = 102.0
+adjustment_enabled = true
+adjustment_brightness = 1.04
+adjustment_contrast = 1.04
+adjustment_saturation = 1.36
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jlm5j"]
+exposure_multiplier = 0.822
+dof_blur_far_distance = 63.81
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
 albedo_color = Color(1, 0.893037, 0.651846, 1)
@@ -33,11 +71,11 @@ top_radius = 10.0
 bottom_radius = 10.0
 height = 100.0
 
-[sub_resource type="Gradient" id="Gradient_7d436"]
+[sub_resource type="Gradient" id="Gradient_q5uyg"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_1te1p"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r0a0i"]
 noise_type = 2
 frequency = 0.03
 cellular_jitter = 3.0
@@ -49,12 +87,12 @@ domain_warp_fractal_type = 2
 domain_warp_fractal_lacunarity = 1.5
 domain_warp_fractal_gain = 1.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jlm5j"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hvnw1"]
 seamless = true
-color_ramp = SubResource("Gradient_7d436")
-noise = SubResource("FastNoiseLite_1te1p")
+color_ramp = SubResource("Gradient_q5uyg")
+noise = SubResource("FastNoiseLite_r0a0i")
 
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_q5uyg"]
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_lo3jn"]
 _shader_parameters = {
 &"bias_distance": 512.0,
 &"blend_sharpness": 0.87,
@@ -71,13 +109,11 @@ _shader_parameters = {
 &"noise1_scale": 0.04,
 &"noise2_scale": 0.076,
 &"noise3_scale": 0.225,
-&"noise_texture": SubResource("NoiseTexture2D_jlm5j"),
+&"noise_texture": SubResource("NoiseTexture2D_hvnw1"),
 &"projection_angular_division": 2.0,
 &"projection_threshold": 0.8,
 &"world_space_normal_blend": true
 }
-world_background = 0
-show_region_grid = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0a0i"]
 transparency = 4
@@ -98,13 +134,12 @@ last_shadow_lod = 0
 lod0_range = 128.0
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_r0a0i"]
-name = "pa_bgTexture_sand"
-albedo_color = Color(0.756156, 0.731273, 0.568602, 1)
+name = "sand_albedo"
 albedo_texture = ExtResource("7_jlm5j")
 normal_texture = ExtResource("8_q5uyg")
-normal_depth = 0.553
-roughness = -0.632
-uv_scale = 0.155
+uv_scale = 0.131
+detiling_rotation = 0.011
+detiling_shift = 0.221
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_lo3jn"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_hvnw1")])
@@ -120,11 +155,13 @@ metadata/_custom_type_script = "uid://bh5v78aga41pd"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e5uuo")
+camera_attributes = SubResource("CameraAttributesPractical_jlm5j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.477419, 0.587463, 0.653421, 0.776046, -0.630676, 0, 0.412097, 0.507085, -0.756995, 0, 21.9425, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+light_color = Color(0.963174, 0.870086, 0.820047, 1)
+light_bake_mode = 0
 shadow_enabled = true
-directional_shadow_max_distance = 250.0
 
 [node name="DayOrbitComponent" type="Node" parent="WorldEnvironment/DirectionalLight3D"]
 script = ExtResource("3_jlm5j")
@@ -143,7 +180,7 @@ shape = SubResource("ConvexPolygonShape3D_rwgxs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.323, 11.4617, 215.985)
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("object_to_follow")]
-transform = Transform3D(1, 0, 0, 0, 0.658952, 0.752185, 0, -0.752185, 0.658952, 213.323, 41.0465, 238.584)
+transform = Transform3D(0.78858, 0.462543, -0.405211, 1.30621e-08, 0.658952, 0.752185, 0.614932, -0.593158, 0.519636, 196.235, 37.3448, 229.74)
 script = ExtResource("5_r0a0i")
 object_to_follow = NodePath("../Ship")
 
@@ -157,9 +194,9 @@ mesh = SubResource("CylinderMesh_k0juu")
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://TerrainRes"
-material = SubResource("Terrain3DMaterial_q5uyg")
+material = SubResource("Terrain3DMaterial_lo3jn")
 assets = SubResource("Terrain3DAssets_lo3jn")
-show_grid = true
-show_region_grid = true
+render_layers = 3
+cast_shadows = 2
 top_level = true
 metadata/_edit_lock_ = true
