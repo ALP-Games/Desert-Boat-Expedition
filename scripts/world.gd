@@ -1,6 +1,6 @@
 class_name World extends Node3D
 
-static var GROUP_NAME := &"World"
+const GROUP_NAME := &"World"
 
 
 func _enter_tree() -> void:

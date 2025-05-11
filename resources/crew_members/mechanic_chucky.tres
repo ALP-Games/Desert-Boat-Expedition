@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CrewMember" load_steps=3 format=3 uid="uid://bdbalsk1v1fqv"]
+
+[ext_resource type="Texture2D" uid="uid://7hee8kp7520h" path="res://Assets/ui/Characters/Mechanic.jpg" id="1_fdw0i"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew_member.gd" id="1_nbhg8"]
+
+[resource]
+script = ExtResource("1_nbhg8")
+name = "Chucky (Mechanic)"
+portrait = ExtResource("1_fdw0i")
+water_consumption = 800
+metadata/_custom_type_script = "uid://02hrgmpa5msp"

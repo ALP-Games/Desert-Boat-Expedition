@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CrewMember" load_steps=3 format=3 uid="uid://c31gecwnnajnb"]
+
+[ext_resource type="Texture2D" uid="uid://vhy4brn05wnd" path="res://Assets/ui/Characters/Sailor.jpg" id="1_x80cc"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew_member.gd" id="2_dehvl"]
+
+[resource]
+script = ExtResource("2_dehvl")
+name = "William (Sailor)"
+portrait = ExtResource("1_x80cc")
+water_consumption = 800
+metadata/_custom_type_script = "uid://02hrgmpa5msp"

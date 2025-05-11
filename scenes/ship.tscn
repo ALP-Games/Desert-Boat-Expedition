@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dawi8sppkthck"]
+[gd_scene load_steps=19 format=3 uid="uid://dawi8sppkthck"]
 
 [ext_resource type="Script" uid="uid://dmc88mf4o0qp3" path="res://scripts/components/ui_controller.gd" id="1_03y04"]
 [ext_resource type="Script" uid="uid://dqcp7anvrr2a5" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
@@ -10,7 +10,10 @@
 [ext_resource type="ArrayMesh" uid="uid://c3qy52vxjdbmd" path="res://Assets/meshs/boat/Sail_Cube_002.res" id="7_bseor"]
 [ext_resource type="ArrayMesh" uid="uid://bysdgemp6tao0" path="res://Assets/meshs/boat/Sail_Cube_004.res" id="8_tlr80"]
 [ext_resource type="ArrayMesh" uid="uid://b5gkgr0ghx6a4" path="res://Assets/meshs/boat/Sail_Sphere.res" id="9_03y04"]
+[ext_resource type="Script" uid="uid://cjax4gx8usajn" path="res://scripts/components/crew_cabin.gd" id="9_48mkp"]
 [ext_resource type="Script" uid="uid://vpefl0oijica" path="res://scripts/components/water_storage.gd" id="10_bseor"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew_member.gd" id="10_mx31c"]
+[ext_resource type="Resource" uid="uid://c31gecwnnajnb" path="res://resources/crew_members/sailor_william.tres" id="11_fs4we"]
 [ext_resource type="Script" uid="uid://dq4fcyjmvce0i" path="res://scripts/components/water_storage_interacor.gd" id="11_tlr80"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gudjc"]
@@ -42,7 +45,8 @@ metadata/_custom_type_script = "uid://dq4fcyjmvce0i"
 
 [node name="WaterStorage" type="Node" parent="."]
 script = ExtResource("10_bseor")
-water_capacity = 24
+water_capacity = 6400
+current_water = 3200
 metadata/_custom_type_script = "uid://vpefl0oijica"
 
 [node name="LocalInputPollComponent" type="Node" parent="."]
@@ -54,6 +58,11 @@ metadata/_custom_type_script = "uid://dqcp7anvrr2a5"
 script = ExtResource("5_gudjc")
 acceleration = 50.0
 metadata/_custom_type_script = "uid://cms5oajqm81q0"
+
+[node name="CrewCabin" type="Node" parent="."]
+script = ExtResource("9_48mkp")
+crew_members = Array[ExtResource("10_mx31c")]([ExtResource("11_fs4we")])
+metadata/_custom_type_script = "uid://cjax4gx8usajn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.24313, 0)

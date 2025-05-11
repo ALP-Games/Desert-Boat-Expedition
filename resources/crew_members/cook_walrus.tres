@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CrewMember" load_steps=3 format=3 uid="uid://q4yc2ewcdqth"]
+
+[ext_resource type="Texture2D" uid="uid://dc52qqsoit5qo" path="res://Assets/ui/Characters/Chef.jpg" id="1_5u0n7"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew_member.gd" id="1_lcpbf"]
+
+[resource]
+script = ExtResource("1_lcpbf")
+name = "Walrus (Cook)"
+portrait = ExtResource("1_5u0n7")
+water_consumption = 800
+metadata/_custom_type_script = "uid://02hrgmpa5msp"

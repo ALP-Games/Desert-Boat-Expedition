@@ -29,3 +29,5 @@ class_name CrewMemberUI extends PanelContainer
 func _ready() -> void:
 	name_label.text = character_name
 	portrait_rect.texture = portrait_texture
+	if not Engine.is_editor_hint():
+		water_consumption_control.visible = false

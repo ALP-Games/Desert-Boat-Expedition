@@ -43,7 +43,7 @@ grow_horizontal = 0
 
 [node name="Label" type="Label" parent="Water"]
 layout_mode = 2
-text = "0/24"
+text = "0/6400"
 label_settings = ExtResource("2_wf0n7")
 
 [node name="Refill Prompt" type="PanelContainer" parent="."]
