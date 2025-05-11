@@ -152,7 +152,6 @@ environment = SubResource("Environment_e5uuo")
 camera_attributes = SubResource("CameraAttributesPractical_jlm5j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 light_color = Color(0.963174, 0.870086, 0.820047, 1)
 light_bake_mode = 0
 shadow_enabled = true
@@ -190,7 +189,7 @@ mesh = SubResource("CylinderMesh_k0juu")
 data_directory = "res://TerrainRes"
 material = SubResource("Terrain3DMaterial_lo3jn")
 assets = SubResource("Terrain3DAssets_lo3jn")
-render_layers = 3
+render_layers = 2147483651
 cast_shadows = 2
 top_level = true
 metadata/_edit_lock_ = true

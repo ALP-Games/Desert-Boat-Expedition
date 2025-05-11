@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bwyicdcwfdphl"
-path="res://.godot/imported/Sail.glb-ebdf8ad61c67673e927e8ac828e0e5ce.scn"
+path="res://.godot/imported/Sail.glb-089936a90480b05514b68a4436eff3fd.scn"
 
 [deps]
 
-source_file="res://Assets/Sail.glb"
-dest_files=["res://.godot/imported/Sail.glb-ebdf8ad61c67673e927e8ac828e0e5ce.scn"]
+source_file="res://Assets/Sail/Sail.glb"
+dest_files=["res://.godot/imported/Sail.glb-089936a90480b05514b68a4436eff3fd.scn"]
 
 [params]
 
