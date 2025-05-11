@@ -38,7 +38,8 @@ enabled=PackedStringArray("res://addons/godot_extension_core_gdscript/plugin.cfg
 folder_colors={
 "res://addons/": "gray",
 "res://addons/godot_extension_core_gdscript/": "blue",
-"res://addons/godot_extension_core_gdscript/Generated/": "red"
+"res://addons/godot_extension_core_gdscript/Generated/": "red",
+"res://ui/": "green"
 }
 
 [global_group]

@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bs6ycv5dbf6vq"]
+
+[ext_resource type="Texture2D" uid="uid://cu2tfc05ce70c" path="res://Assets/ui/bars/barHorizontal_white_mid.png" id="1_qf1s0"]
+
+[resource]
+texture = ExtResource("1_qf1s0")
+modulate_color = Color(0.32549, 0.752941, 1, 1)
