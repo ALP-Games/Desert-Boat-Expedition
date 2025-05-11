@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0qo82mla5uxw"]
+[gd_scene load_steps=6 format=3 uid="uid://b0qo82mla5uxw"]
 
-[ext_resource type="PackedScene" uid="uid://bm3qs63t14ty6" path="res://ui/crew_member_ui.tscn" id="1_rq102"]
+[ext_resource type="PackedScene" uid="uid://bm3qs63t14ty6" path="res://ui/crew_ui_modules/crew_member_ui.tscn" id="1_rq102"]
+[ext_resource type="Script" uid="uid://cxp5q5r47aje8" path="res://scripts/ui/crew_overview_ui.gd" id="1_vxcnu"]
+[ext_resource type="Texture2D" uid="uid://7hee8kp7520h" path="res://Assets/ui/Characters/Mechanic.jpg" id="3_1f4lf"]
+[ext_resource type="Texture2D" uid="uid://dc52qqsoit5qo" path="res://Assets/ui/Characters/Chef.jpg" id="4_vxcnu"]
+[ext_resource type="Texture2D" uid="uid://bhv7n66pawvuy" path="res://Assets/ui/Characters/Navigator.jpg" id="5_mq60a"]
 
 [node name="CrewOverviewUI" type="Control"]
 layout_mode = 3
@@ -9,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vxcnu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -31,15 +36,22 @@ layout_mode = 2
 
 [node name="CrewMemberUI" parent="VBoxContainer/CrewContainer" instance=ExtResource("1_rq102")]
 layout_mode = 2
+character_name = "William (Sailor)"
 
 [node name="CrewMemberUI2" parent="VBoxContainer/CrewContainer" instance=ExtResource("1_rq102")]
 layout_mode = 2
+character_name = "Chucky (Mechanic)"
+portrait_texture = ExtResource("3_1f4lf")
 
 [node name="CrewMemberUI3" parent="VBoxContainer/CrewContainer" instance=ExtResource("1_rq102")]
 layout_mode = 2
+character_name = "Walrus (Cook)"
+portrait_texture = ExtResource("4_vxcnu")
 
 [node name="CrewMemberUI4" parent="VBoxContainer/CrewContainer" instance=ExtResource("1_rq102")]
 layout_mode = 2
+character_name = "Kevin (Navigator)"
+portrait_texture = ExtResource("5_mq60a")
 
 [node name="ControlBottom" type="Control" parent="VBoxContainer"]
 layout_mode = 2

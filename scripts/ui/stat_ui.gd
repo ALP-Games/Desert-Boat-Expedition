@@ -1,5 +1,5 @@
 @tool
-extends HBoxContainer
+class_name StatUI extends HBoxContainer
 
 @export var stat_name: String = "Stat":
 	set(value):

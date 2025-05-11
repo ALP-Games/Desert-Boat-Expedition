@@ -11,6 +11,7 @@ static var GROUP_NAME := &"GameplayUI"
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_NAME)
+	add_to_group(GlobalStrings.UI_GROUP)
 
 
 func _ready() -> void:

@@ -45,3 +45,7 @@ folder_colors={
 [global_group]
 
 Player="group for the player object"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"

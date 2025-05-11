@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr43y3wdro00i"]
+
+[ext_resource type="Script" uid="uid://cti6g4ie8psa5" path="res://scripts/ui/ui_controller.gd" id="1_6vchm"]
+[ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://ui/gameplay_ui.tscn" id="1_urrig"]
+[ext_resource type="PackedScene" uid="uid://b0qo82mla5uxw" path="res://ui/crew_overview_ui.tscn" id="2_8atcr"]
+
+[node name="UIManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6vchm")
+
+[node name="GameplayUI" parent="." instance=ExtResource("1_urrig")]
+layout_mode = 1
+
+[node name="CrewOverviewUI" parent="." instance=ExtResource("2_8atcr")]
+layout_mode = 1
