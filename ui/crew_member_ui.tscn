@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm3qs63t14ty6"]
+[gd_scene load_steps=4 format=3 uid="uid://bm3qs63t14ty6"]
 
-[ext_resource type="Texture2D" uid="uid://cn4xeu6d8fw8g" path="res://icon.svg" id="1_s74rn"]
+[ext_resource type="Texture2D" uid="uid://vhy4brn05wnd" path="res://Assets/ui/Characters/Sailor.jpg" id="1_pfm4a"]
 [ext_resource type="PackedScene" uid="uid://et4gus5ymfwd" path="res://ui/stat.tscn" id="2_auvdi"]
-[ext_resource type="StyleBox" uid="uid://bs6ycv5dbf6vq" path="res://resources/ui/blue_bar.tres" id="3_aqjr2"]
-[ext_resource type="StyleBox" uid="uid://bt0dum2lhnslp" path="res://resources/ui/yellow_bar.tres" id="4_8emqe"]
-[ext_resource type="StyleBox" uid="uid://b62l8u6d11l8f" path="res://resources/ui/orange_bar.tres" id="5_pfm4a"]
+[ext_resource type="StyleBox" uid="uid://bkhg7ychqy034" path="res://resources/ui/metal_box_button.tres" id="3_aqjr2"]
 
 [node name="CrewMemberUI" type="PanelContainer"]
 offset_right = 128.0
@@ -25,23 +23,67 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Portrait" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_s74rn")
+texture = ExtResource("1_pfm4a")
+expand_mode = 4
 
 [node name="Thirst" parent="VBoxContainer" instance=ExtResource("2_auvdi")]
 layout_mode = 2
 stat_name = "Thirst"
-bar_style_texture = ExtResource("3_aqjr2")
+bar_color = Color(0.4, 0.843137, 1, 1)
 
 [node name="Fatigue" parent="VBoxContainer" instance=ExtResource("2_auvdi")]
 layout_mode = 2
 stat_name = "Fatigue"
-bar_style_texture = ExtResource("4_8emqe")
+bar_color = Color(1, 0.918594, 0.166372, 1)
 
 [node name="Efficiency" parent="VBoxContainer" instance=ExtResource("2_auvdi")]
 layout_mode = 2
 stat_name = "Efficiency"
-bar_style_texture = ExtResource("5_pfm4a")
+bar_color = Color(1, 0.596078, 0.176471, 1)
 bar_fill_mode = 1
+
+[node name="WaterConsumption" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/WaterConsumption"]
+layout_mode = 2
+text = "500/800 drams"
+horizontal_alignment = 1
+
+[node name="WaterConsumptionControl" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/WaterConsumptionControl"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ControlLeft" type="Control" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonAdd" type="Button" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_aqjr2")
+icon_alignment = 1
+
+[node name="ControlMiddle" type="Control" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="ButtonSubtract" type="Button" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_aqjr2")
+icon_alignment = 1
+
+[node name="ControlRight" type="Control" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

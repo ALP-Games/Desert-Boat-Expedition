@@ -9,7 +9,7 @@ offset_bottom = 23.0
 size_flags_horizontal = 3
 script = ExtResource("1_cbfaq")
 stat_name = ""
-bar_style_texture = ExtResource("2_cbfaq")
+bar_color = null
 
 [node name="StatNameContainer" type="PanelContainer" parent="."]
 layout_mode = 2
