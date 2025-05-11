@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://hrt8p7fyb26p"]
+[gd_scene load_steps=26 format=3 uid="uid://hrt8p7fyb26p"]
 
 [ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://scripts/world.gd" id="1_7d436"]
 [ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://scripts/components/day_night_cycle.gd" id="2_1te1p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="5_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://ui/gameplay_ui.tscn" id="6_hvnw1"]
 [ext_resource type="Texture2D" uid="uid://c7431itllior6" path="res://Textures/sand_albedo.png" id="7_jlm5j"]
+[ext_resource type="PackedScene" uid="uid://b0qo82mla5uxw" path="res://ui/crew_overview_ui.tscn" id="7_q5uyg"]
 [ext_resource type="Texture2D" uid="uid://dbycmygjw6ygt" path="res://Textures/packed_normal_roughness.png" id="8_q5uyg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
@@ -48,6 +49,7 @@ adjustment_saturation = 1.36
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jlm5j"]
 exposure_multiplier = 0.822
+dof_blur_far_enabled = true
 dof_blur_far_distance = 63.81
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
@@ -184,6 +186,8 @@ mesh = SubResource("CylinderMesh_k0juu")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameplayUI" parent="CanvasLayer" instance=ExtResource("6_hvnw1")]
+
+[node name="CrewOverviewUI" parent="CanvasLayer" instance=ExtResource("7_q5uyg")]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://TerrainRes"
