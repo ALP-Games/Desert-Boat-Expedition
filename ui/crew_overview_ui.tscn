@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bm3qs63t14ty6" path="res://ui/crew_ui_modules/crew_member_ui.tscn" id="1_rq102"]
 [ext_resource type="Script" uid="uid://cxp5q5r47aje8" path="res://scripts/ui/crew_overview_ui.gd" id="1_vxcnu"]
-[ext_resource type="Texture2D" uid="uid://7hee8kp7520h" path="res://Assets/ui/Characters/Mechanic.jpg" id="3_1f4lf"]
-[ext_resource type="Texture2D" uid="uid://dc52qqsoit5qo" path="res://Assets/ui/Characters/Chef.jpg" id="4_vxcnu"]
-[ext_resource type="Texture2D" uid="uid://bhv7n66pawvuy" path="res://Assets/ui/Characters/Navigator.jpg" id="5_mq60a"]
+[ext_resource type="Texture2D" uid="uid://cnaoyuqti0c78" path="res://Assets/ui/Characters/Mechanic.jpg" id="3_1f4lf"]
+[ext_resource type="Texture2D" uid="uid://4ogoxpas68hx" path="res://Assets/ui/Characters/Chef.jpg" id="4_vxcnu"]
+[ext_resource type="Texture2D" uid="uid://b4audl7l4iopn" path="res://Assets/ui/Characters/Navigator.jpg" id="5_mq60a"]
 
 [node name="CrewOverviewUI" type="Control"]
 layout_mode = 3
@@ -33,6 +33,7 @@ size_flags_stretch_ratio = 0.15
 
 [node name="CrewContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="CrewMemberUI" parent="VBoxContainer/CrewContainer" instance=ExtResource("1_rq102")]
 layout_mode = 2

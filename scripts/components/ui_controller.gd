@@ -38,7 +38,7 @@ func _process_gameplay_state(delta: float) -> void:
 		# there was that cool idea about UI stack I had when working on CF!
 		#_disable_all_ui_nodes()
 		var crew_overview_ui: CrewOverviewUI = get_tree().get_first_node_in_group(CrewOverviewUI.GROUP_NAME)
-		crew_overview_ui.visible = true
+		crew_overview_ui.show_ui(true)
 		get_tree().paused = true
 
 
@@ -48,7 +48,7 @@ func _process_crew_overview_state(delta: float) -> void:
 		_current_state = UIState.GAMEPLAY
 		#_disable_all_ui_nodes()
 		var crew_overview_ui: CrewOverviewUI = get_tree().get_first_node_in_group(CrewOverviewUI.GROUP_NAME)
-		crew_overview_ui.visible = false
+		crew_overview_ui.show_ui(false)
 		#var gameplay_ui: GameplayUI = get_tree().get_first_node_in_group(GameplayUI.GROUP_NAME)
 		#gameplay_ui.visible = true
 		get_tree().paused = false

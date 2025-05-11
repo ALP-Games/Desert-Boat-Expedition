@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dawi8sppkthck"]
+[gd_scene load_steps=22 format=3 uid="uid://dawi8sppkthck"]
 
 [ext_resource type="Script" uid="uid://dmc88mf4o0qp3" path="res://scripts/components/ui_controller.gd" id="1_03y04"]
 [ext_resource type="Script" uid="uid://dqcp7anvrr2a5" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
@@ -15,6 +15,9 @@
 [ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew_member.gd" id="10_mx31c"]
 [ext_resource type="Resource" uid="uid://c31gecwnnajnb" path="res://resources/crew_members/sailor_william.tres" id="11_fs4we"]
 [ext_resource type="Script" uid="uid://dq4fcyjmvce0i" path="res://scripts/components/water_storage_interacor.gd" id="11_tlr80"]
+[ext_resource type="Resource" uid="uid://bdbalsk1v1fqv" path="res://resources/crew_members/mechanic_chucky.tres" id="12_dschd"]
+[ext_resource type="Resource" uid="uid://q4yc2ewcdqth" path="res://resources/crew_members/cook_walrus.tres" id="13_83dbu"]
+[ext_resource type="Resource" uid="uid://cmlk7gf1kj8u4" path="res://resources/crew_members/navigator_kevin.tres" id="14_xifwb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gudjc"]
 rough = true
@@ -61,7 +64,7 @@ metadata/_custom_type_script = "uid://cms5oajqm81q0"
 
 [node name="CrewCabin" type="Node" parent="."]
 script = ExtResource("9_48mkp")
-crew_members = Array[ExtResource("10_mx31c")]([ExtResource("11_fs4we")])
+crew_members = Array[ExtResource("10_mx31c")]([ExtResource("11_fs4we"), ExtResource("12_dschd"), ExtResource("13_83dbu"), ExtResource("14_xifwb")])
 metadata/_custom_type_script = "uid://cjax4gx8usajn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
