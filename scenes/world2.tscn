@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cw15j67cajru2" path="res://scripts/components/day_orbit_component.gd" id="3_jlm5j"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="4_q5uyg"]
 [ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="5_r0a0i"]
-[ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://scenes/gameplay_ui.tscn" id="6_hvnw1"]
+[ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://ui/gameplay_ui.tscn" id="6_hvnw1"]
 [ext_resource type="Texture2D" uid="uid://bag3qa6jj7arb" path="res://Textures/pa_bgTexture_sand.png" id="7_jlm5j"]
 [ext_resource type="Texture2D" uid="uid://djs6vjuyh1aco" path="res://Textures/pa_bgTexture_sand_normalMap.png" id="8_q5uyg"]
 

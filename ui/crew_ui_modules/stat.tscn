@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://et4gus5ymfwd"]
+
+[ext_resource type="Script" uid="uid://cnc7mix2qojo1" path="res://scripts/ui/stat_ui.gd" id="1_ihmyk"]
+[ext_resource type="StyleBox" uid="uid://b6dfpynohgeok" path="res://resources/ui/white_bar.tres" id="2_dc6kh"]
+
+[node name="StatUI" type="HBoxContainer"]
+offset_right = 39.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+script = ExtResource("1_ihmyk")
+stat_name = ""
+
+[node name="StatNameContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="StatName" type="Label" parent="StatNameContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+vertical_alignment = 1
+
+[node name="StatReprerentationContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="StatReprerentationContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = ExtResource("2_dc6kh")
+value = 50.0
+show_percentage = false

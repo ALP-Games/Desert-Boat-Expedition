@@ -22,6 +22,16 @@
 			"$type": "bool",
 			"$keyboard_button": ["KEY_R"],
 			"$controller_button": ["JOY_BUTTON_A"]
+		},
+		"back": {
+			"$type": "bool",
+			"$keyboard_button": ["KEY_ESCAPE"],
+			"$controller_button": ["JOY_BUTTON_B"]
+		},
+		"toggle_crew_menu": {
+			"$type": "bool",
+			"$keyboard_button": ["KEY_C"],
+			"$controller_button": ["JOY_BUTTON_START"]
 		}
 	}
 }

@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm3qs63t14ty6"]
+
+[ext_resource type="Script" uid="uid://cnpf1156pmjyw" path="res://scripts/ui/crew_member_ui.gd" id="1_je8gh"]
+[ext_resource type="Texture2D" uid="uid://vhy4brn05wnd" path="res://Assets/ui/Characters/Sailor.jpg" id="2_pswj2"]
+[ext_resource type="PackedScene" uid="uid://et4gus5ymfwd" path="res://ui/crew_ui_modules/stat.tscn" id="3_sqxfy"]
+[ext_resource type="StyleBox" uid="uid://bkhg7ychqy034" path="res://resources/ui/metal_box_button.tres" id="4_5ilsq"]
+[ext_resource type="LabelSettings" uid="uid://boehl3k02y5of" path="res://resources/fonts/plus_minus_font.tres" id="5_fs7xi"]
+
+[node name="CrewMemberUI" type="PanelContainer"]
+offset_right = 128.0
+offset_bottom = 182.0
+size_flags_vertical = 0
+script = ExtResource("1_je8gh")
+portrait_texture = ExtResource("2_pswj2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="NameContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/NameContainer"]
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_pswj2")
+expand_mode = 4
+
+[node name="Thirst" parent="VBoxContainer" instance=ExtResource("3_sqxfy")]
+layout_mode = 2
+stat_name = "Thirst"
+bar_color = Color(0.4, 0.843137, 1, 1)
+
+[node name="Fatigue" parent="VBoxContainer" instance=ExtResource("3_sqxfy")]
+layout_mode = 2
+stat_name = "Fatigue"
+bar_color = Color(1, 0.918594, 0.166372, 1)
+
+[node name="Efficiency" parent="VBoxContainer" instance=ExtResource("3_sqxfy")]
+layout_mode = 2
+stat_name = "Efficiency"
+bar_color = Color(1, 0.596078, 0.176471, 1)
+bar_fill_mode = 1
+
+[node name="WaterConsumption" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/WaterConsumption"]
+layout_mode = 2
+text = "500/800 drams"
+horizontal_alignment = 1
+
+[node name="WaterConsumptionControl" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/WaterConsumptionControl"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ControlLeft" type="Control" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonAdd" type="Button" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_5ilsq")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer/ButtonAdd"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+label_settings = ExtResource("5_fs7xi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlMiddle" type="Control" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="ButtonSubtract" type="Button" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_5ilsq")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer/ButtonSubtract"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-"
+label_settings = ExtResource("5_fs7xi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlRight" type="Control" parent="VBoxContainer/WaterConsumptionControl/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
