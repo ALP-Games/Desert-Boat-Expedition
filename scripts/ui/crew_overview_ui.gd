@@ -1,10 +1,13 @@
 class_name CrewOverviewUI extends Control
 
+const WANTER_CONSUMPTION_FORMAT := "Water consumption per day - %d drams"
+
 const CREW_MEMBER_UI := preload("res://ui/crew_ui_modules/crew_member_ui.tscn")
 #@export var something: PackedScene
 const GROUP_NAME := &"CrewOverviewUI"
 
 @onready var crew_container := $VBoxContainer/CrewContainer
+@onready var water_consumption_label := $VBoxContainer/WaterConsumptionPanel/Label
 
 var _crew_cabin: CrewCabin
 var _crew_member_hash: int
@@ -15,11 +18,17 @@ func _ready() -> void:
 	visible = false
 	var player := get_tree().get_first_node_in_group(GlobalStrings.PLAYER_GROUP)
 	_crew_cabin = CrewCabin.core().get_from(player)
+	_update_water_consumption(_crew_cabin.get_water_consumption())
+	_crew_cabin.water_consumption_changed.connect(_update_water_consumption)
 	_crew_member_hash = _crew_cabin.crew_members.hash()
 	_rebuild_crew_container()
 	
 	#print("Crew cabin - ", _crew_cabin)
 	#print("Crew cabin size - ", _crew_cabin.crew_members.size())
+
+
+func _update_water_consumption(amount: int) -> void:
+	water_consumption_label.text = WANTER_CONSUMPTION_FORMAT % amount
 
 
 func show_ui(show: bool) -> void:

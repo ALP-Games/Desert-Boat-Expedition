@@ -12,4 +12,4 @@ static func core() -> ComponentCore:
 func _ready() -> void:
 	for initializer in component_initializers:
 		initializer.initialize_component(get_parent())
-	component_initializers.clear()
+	queue_free()

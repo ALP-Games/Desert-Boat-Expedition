@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0qo82mla5uxw"]
+[gd_scene load_steps=7 format=3 uid="uid://b0qo82mla5uxw"]
 
 [ext_resource type="PackedScene" uid="uid://bm3qs63t14ty6" path="res://ui/crew_ui_modules/crew_member_ui.tscn" id="1_rq102"]
 [ext_resource type="Script" uid="uid://cxp5q5r47aje8" path="res://scripts/ui/crew_overview_ui.gd" id="1_vxcnu"]
 [ext_resource type="Texture2D" uid="uid://cnaoyuqti0c78" path="res://Assets/ui/Characters/Mechanic.jpg" id="3_1f4lf"]
 [ext_resource type="Texture2D" uid="uid://4ogoxpas68hx" path="res://Assets/ui/Characters/Chef.jpg" id="4_vxcnu"]
 [ext_resource type="Texture2D" uid="uid://b4audl7l4iopn" path="res://Assets/ui/Characters/Navigator.jpg" id="5_mq60a"]
+[ext_resource type="LabelSettings" uid="uid://bls76s8ny02og" path="res://resources/fonts/basic_font.tres" id="6_mq60a"]
 
 [node name="CrewOverviewUI" type="Control"]
 layout_mode = 3
@@ -53,6 +54,15 @@ portrait_texture = ExtResource("4_vxcnu")
 layout_mode = 2
 character_name = "Kevin (Navigator)"
 portrait_texture = ExtResource("5_mq60a")
+
+[node name="WaterConsumptionPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/WaterConsumptionPanel"]
+layout_mode = 2
+text = "Water consumption per day - 0 drams"
+label_settings = ExtResource("6_mq60a")
+horizontal_alignment = 1
 
 [node name="ControlBottom" type="Control" parent="VBoxContainer"]
 layout_mode = 2
