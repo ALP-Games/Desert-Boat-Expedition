@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://scripts/world.gd" id="1_7d436"]
 [ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://scripts/components/day_night_cycle.gd" id="2_1te1p"]
-[ext_resource type="Script" uid="uid://cw15j67cajru2" path="res://scripts/components/day_orbit_component.gd" id="3_jlm5j"]
+[ext_resource type="Environment" uid="uid://lc23abnon5ux" path="res://scenes/WorldDayEnviorment.tres" id="3_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="4_q5uyg"]
 [ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="5_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://ui/gameplay_ui.tscn" id="6_hvnw1"]
@@ -10,47 +10,167 @@
 [ext_resource type="PackedScene" uid="uid://b0qo82mla5uxw" path="res://ui/crew_overview_ui.tscn" id="7_q5uyg"]
 [ext_resource type="Texture2D" uid="uid://dbycmygjw6ygt" path="res://Textures/packed_normal_roughness.png" id="8_q5uyg"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
-sky_top_color = Color(0.320076, 0.450205, 0.6597, 1)
-sky_horizon_color = Color(0.570339, 0.66783, 0.763299, 1)
-sky_curve = 0.075
-
-[sub_resource type="Sky" id="Sky_4wyf3"]
-sky_material = SubResource("ProceduralSkyMaterial_rwgxs")
-
-[sub_resource type="Environment" id="Environment_e5uuo"]
-background_mode = 2
-sky = SubResource("Sky_4wyf3")
-ambient_light_source = 3
-ambient_light_color = Color(0.565525, 0.742638, 0.932849, 1)
-reflected_light_source = 2
-ssao_enabled = true
-ssil_enabled = true
-ssil_radius = 11.52
-ssil_intensity = 2.0
-glow_enabled = true
-glow_levels/1 = 4.29
-glow_levels/5 = 3.95
-glow_levels/7 = 2.38
-glow_blend_mode = 1
-fog_enabled = true
-fog_light_color = Color(0.899728, 0.829871, 0.770608, 1)
-fog_light_energy = 1.09
-fog_sun_scatter = 0.08
-fog_density = 0.0044
-fog_aerial_perspective = 0.244
-fog_sky_affect = 0.0
-fog_depth_begin = 33.0
-fog_depth_end = 102.0
-adjustment_enabled = true
-adjustment_brightness = 1.04
-adjustment_contrast = 1.04
-adjustment_saturation = 1.36
-
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jlm5j"]
 exposure_multiplier = 0.822
-dof_blur_far_enabled = true
 dof_blur_far_distance = 63.81
+
+[sub_resource type="Animation" id="Animation_q5uyg"]
+resource_name = "Day_Night"
+length = 24.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.8478, 7.98724, 19.4, 23.9667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.963174, 0.870086, 0.820047, 1), Color(0.901125, 0.683055, 0.562325, 1), Color(0.695809, 0.441572, 0.7943, 1), Color(0.901125, 0.683055, 0.562325, 1), Color(0.963174, 0.870086, 0.820047, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8, 24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-7.85398, 0, 0), Vector3(-6.50226, 0, 0), Vector3(-1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7.3, 8.4, 19.2667, 20.4816),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Moon:light_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8, 18.9126),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.386653, 0.480321, 0.773939, 1), Color(0.388235, 0.478431, 0.772549, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Moon:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-10.9956, 0, 0), Vector3(-4.71239, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Moon:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 7.87314, 9.38501, 17.0299, 17.7431),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r0a0i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.85398, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.963174, 0.870086, 0.820047, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Moon:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.523599, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Moon:light_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.963174, 0.870086, 0.820047, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Moon:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvnw1"]
+_data = {
+&"Day_Night": SubResource("Animation_q5uyg"),
+&"RESET": SubResource("Animation_r0a0i")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
 albedo_color = Color(1, 0.893037, 0.651846, 1)
@@ -150,17 +270,30 @@ current_minutes = 45
 metadata/_custom_type_script = "uid://bh5v78aga41pd"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_e5uuo")
+environment = ExtResource("3_r0a0i")
 camera_attributes = SubResource("CameraAttributesPractical_jlm5j")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+[node name="Orbit" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(0.522007, 0.752367, 0.401812, -0.803939, 0.276624, 0.526462, 0.284942, -0.597849, 0.749256, 0, 0, 0)
+
+[node name="Moon" type="DirectionalLight3D" parent="WorldEnvironment/Orbit"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+light_color = Color(0.963174, 0.870086, 0.820047, 1)
+light_energy = 0.0
+light_bake_mode = 0
+shadow_enabled = true
+
+[node name="Sun" type="DirectionalLight3D" parent="WorldEnvironment/Orbit"]
+transform = Transform3D(1, 0, 0, 0, 1.56958e-06, 1, 0, -1, 1.56958e-06, 0, 0, 0)
 light_color = Color(0.963174, 0.870086, 0.820047, 1)
 light_bake_mode = 0
 shadow_enabled = true
 
-[node name="DayOrbitComponent" type="Node" parent="WorldEnvironment/DirectionalLight3D"]
-script = ExtResource("3_jlm5j")
-metadata/_custom_type_script = "uid://cw15j67cajru2"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/Orbit"]
+root_node = NodePath("../Sun")
+libraries = {
+&"": SubResource("AnimationLibrary_hvnw1")
+}
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 visible = false

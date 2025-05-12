@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dmc88mf4o0qp3" path="res://scripts/components/ui_controller.gd" id="1_03y04"]
 [ext_resource type="Script" uid="uid://d2w5epd8574bi" path="res://scripts/extended_rigid_body_3d.gd" id="1_83dbu"]
-[ext_resource type="Script" uid="uid://dqcp7anvrr2a5" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
-[ext_resource type="Script" uid="uid://c0674h4ynhvmk" path="res://addons/godot_extension_core_gdscript/Generated/Input/iinput_polling_resource.gd" id="2_tfsc7"]
+[ext_resource type="Script" uid="uid://dr55235e5y432" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
+[ext_resource type="Script" uid="uid://vrxwo4texyin" path="res://addons/godot_extension_core_gdscript/Generated/Input/iinput_polling_resource.gd" id="2_tfsc7"]
 [ext_resource type="Resource" uid="uid://bh7fq0jhn3db5" path="res://resources/controls/controller_poll.tres" id="3_gudjc"]
 [ext_resource type="Resource" uid="uid://b7heq3x6sqytr" path="res://resources/controls/mkb_poll.tres" id="4_7j21i"]
 [ext_resource type="Script" uid="uid://cms5oajqm81q0" path="res://scripts/components/ship_movement.gd" id="5_gudjc"]
