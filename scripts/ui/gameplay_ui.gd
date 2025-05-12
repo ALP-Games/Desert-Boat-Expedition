@@ -4,16 +4,21 @@ const TIME_FORMAT := &"%02d:%02d"
 const WATER_FORMAT := &"%d/%d"
 const SPEED_FORMAT := &"%.1f km/s"
 
+const INACTIVE_TICK := preload("res://Assets/ui/other/grey_circle.png")
+const ACTIVE_TICK := preload("res://Assets/ui/other/grey_boxTick.png")
+
 const GROUP_NAME := &"GameplayUI"
 
 @onready var hours_label := $Time/Hours
 @onready var water_laber := $Water/Label
 @onready var refill_prompt := $"Refill Prompt"
-@onready var speed_label := $Speed/Label
+@onready var speed_label := $VBoxContainer/Speed/Label
+@onready var speed_selection_container := $VBoxContainer/PanelContainer/SpeedSelectionContainer
 
 var _player: RigidBody3D
 var _day_night_cycle: DayNightCycle
 
+var speed_selection_nodes: Array[TextureRect]
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_NAME)
@@ -36,11 +41,26 @@ func _ready() -> void:
 	water_interactor.possible_to_interact.connect(_enable_refill_prompt.bind(true))
 	water_interactor.interaction_closed.connect(_enable_refill_prompt.bind(null, false))
 	# not disconnecting, but should not be important, unless we are gonna be unloading this UI scene
+	_collect_speed_selection_nodes()
+	var ship_movement := ShipMovement.core().get_from(_player) as ShipMovement
+	ship_movement.acceleration_variant_changed.connect(_update_speed_indicator)
 
 
 func _process(delta: float) -> void:
 	_update_time_label()
 	_update_speed_label()
+
+
+func _collect_speed_selection_nodes() -> void:
+	speed_selection_nodes.clear()
+	for child in speed_selection_container.get_children():
+		if child is TextureRect:
+			speed_selection_nodes.push_back(child)
+
+
+func _update_speed_indicator(previous: int, current: int) -> void:
+	speed_selection_nodes[previous].texture = INACTIVE_TICK
+	speed_selection_nodes[current].texture = ACTIVE_TICK
 
 
 func _update_time_label() -> void:

@@ -2,6 +2,8 @@
 class_name ShipMovement
 extends Component
 
+signal acceleration_variant_changed(previous: int, current: int)
+
 @export_group("Movement parameters")
 @export var acceleration_variants: PackedFloat32Array = [-25, -15, 0, 20, 30, 40, 55]
 @export var drag_coefficient: float = 3000.0
@@ -15,7 +17,11 @@ extends Component
 
 var _parent: RigidBody3D = null
 var _input_polling_component: IInputPollingComponent = null
-var _current_acceleration_variant: int = 5
+var _current_acceleration_variant: int = 2:
+	set(value):
+		var previous = _current_acceleration_variant
+		_current_acceleration_variant = value
+		acceleration_variant_changed.emit(previous, _current_acceleration_variant)
 
 var _on_floor = false
 
@@ -38,13 +44,16 @@ func _on_integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var acceleration_input := _input_polling_component.get_acceleration()
+	#var acceleration_input := _input_polling_component.get_acceleration()
 	var turn_input := _input_polling_component.get_turn() * -1.0
 	
-	if acceleration_input and _on_floor:
-		var acceleration_direction := _parent.transform.basis * Vector3(0.0, 0.0, acceleration_input)
-		_parent.apply_central_force(acceleration_direction * acceleration_variants[_current_acceleration_variant] * _parent.mass)
+	if _input_polling_component.get_add_acceleration().is_just_pressed() \
+	and _current_acceleration_variant < acceleration_variants.size() - 1:
+		_current_acceleration_variant += 1
 	
+	if _input_polling_component.get_subtract_acceleration().is_just_pressed() \
+	and _current_acceleration_variant > 0:
+		_current_acceleration_variant -= 1
 	
 	if turn_input and _on_floor:
 		var forward_speed = _parent.linear_velocity.dot(_parent.global_transform.basis.z.normalized())
@@ -56,6 +65,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if _on_floor:
+		var acceleration_direction := _parent.transform.basis * Vector3.FORWARD
+		_parent.apply_central_force(acceleration_direction * acceleration_variants[_current_acceleration_variant] * _parent.mass)
+		
 		var drag_force = -_parent.linear_velocity * drag_coefficient
 		_parent.apply_central_force(drag_force)
 		var angular_drag_force = -_parent.angular_velocity.y * angular_drag

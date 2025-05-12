@@ -8,6 +8,16 @@
 		"$deadzone_radius": 0.1
 	},
 	"$inputs": {
+		"add_acceleration": {
+			"$type": "bool",
+			"$keyboard_button": ["KEY_W"],
+			"$controller_button": ["JOY_BUTTON_DPAD_UP"]
+		},
+		"subtract_acceleration": {
+			"$type": "bool",
+			"$keyboard_button": ["KEY_S"],
+			"$controller_button": ["JOY_BUTTON_DPAD_DOWN"]
+		},
 		"acceleration": {
 			"$type": "float",
 			"$keyboard_inputs": { "forward": ["KEY_W"], "back": ["KEY_S"]},
