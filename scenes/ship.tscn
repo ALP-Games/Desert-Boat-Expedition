@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://dawi8sppkthck"]
+[gd_scene load_steps=24 format=3 uid="uid://dawi8sppkthck"]
 
 [ext_resource type="Script" uid="uid://dmc88mf4o0qp3" path="res://scripts/components/ui_controller.gd" id="1_03y04"]
+[ext_resource type="Script" uid="uid://d2w5epd8574bi" path="res://scripts/extended_rigid_body_3d.gd" id="1_83dbu"]
 [ext_resource type="Script" uid="uid://dqcp7anvrr2a5" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
 [ext_resource type="Script" uid="uid://c0674h4ynhvmk" path="res://addons/godot_extension_core_gdscript/Generated/Input/iinput_polling_resource.gd" id="2_tfsc7"]
 [ext_resource type="Resource" uid="uid://bh7fq0jhn3db5" path="res://resources/controls/controller_poll.tres" id="3_gudjc"]
@@ -19,22 +20,27 @@
 [ext_resource type="Resource" uid="uid://q4yc2ewcdqth" path="res://resources/crew_members/cook_walrus.tres" id="13_83dbu"]
 [ext_resource type="Resource" uid="uid://cmlk7gf1kj8u4" path="res://resources/crew_members/navigator_kevin.tres" id="14_xifwb"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gudjc"]
-rough = true
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2gnfn"]
-radius = 2.00427
-height = 9.99799
+radius = 1.07466
+height = 12.212
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dschd"]
+size = Vector3(2.00598, 0.37619, 4.96179)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dschd"]
+radius = 0.308526
+height = 7.784
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tlr80"]
 radius = 8.0
 
 [node name="Ship" type="RigidBody3D" groups=["Player"]]
-axis_lock_angular_x = true
 axis_lock_angular_z = true
 mass = 6000.0
-physics_material_override = SubResource("PhysicsMaterial_gudjc")
+gravity_scale = 1.5
+contact_monitor = true
 max_contacts_reported = 10
+script = ExtResource("1_83dbu")
 
 [node name="UIController" type="Node" parent="."]
 process_mode = 3
@@ -57,7 +63,10 @@ _input_pollers = Array[ExtResource("2_tfsc7")]([ExtResource("3_gudjc"), ExtResou
 
 [node name="ShipMovement" type="Node" parent="."]
 script = ExtResource("5_gudjc")
-acceleration = 50.0
+drag_coefficient = 2350.0
+turn_acceleration = 15.0
+turn_factor_sensitivity = 30.0
+max_yaw = 0.349066
 metadata/_custom_type_script = "uid://cms5oajqm81q0"
 
 [node name="CrewCabin" type="Node" parent="."]
@@ -65,9 +74,17 @@ script = ExtResource("9_48mkp")
 crew_members = Array[ExtResource("10_mx31c")]([ExtResource("11_fs4we"), ExtResource("12_dschd"), ExtResource("13_83dbu"), ExtResource("14_xifwb")])
 metadata/_custom_type_script = "uid://cjax4gx8usajn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.24313, 0)
+[node name="CollisionMainBody" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.458523, -0.372)
 shape = SubResource("CapsuleShape3D_2gnfn")
+
+[node name="Connection" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.990712, -0.135975, 0, 0.135975, 0.990712, 0, 0, 0, 1, -1.94677, 0.456865, 0.0393213)
+shape = SubResource("BoxShape3D_dschd")
+
+[node name="CollisionSideBody" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.17822, -0.205089, -0.455574)
+shape = SubResource("CapsuleShape3D_dschd")
 
 [node name="ShipModel" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

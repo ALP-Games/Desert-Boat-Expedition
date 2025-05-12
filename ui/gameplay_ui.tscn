@@ -62,3 +62,17 @@ grow_vertical = 0
 layout_mode = 2
 text = "R to refill from Oasis"
 label_settings = SubResource("LabelSettings_wf0n7")
+
+[node name="Speed" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Speed"]
+layout_mode = 2
+text = "30 km/s"
+label_settings = ExtResource("2_wf0n7")
