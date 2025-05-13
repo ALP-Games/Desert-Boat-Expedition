@@ -41,7 +41,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_consumption_time_elapsed += delta
-	if _consumption_time_elapsed / _water_consumption_interval >= _minimum_water_consumed:
+	if _water_consumption_interval == INF:
+		_consumption_time_elapsed = 0
+	elif _consumption_time_elapsed / _water_consumption_interval >= _minimum_water_consumed:
 		_consumption_time_elapsed -= _water_consumption_interval * _minimum_water_consumed
 		_water_storage.take_out_water_amount(_minimum_water_consumed)
 	#print("Seconds elasped - ", seconds_elapsed, "; consumed count - ", consumption_count)

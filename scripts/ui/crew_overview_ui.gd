@@ -44,6 +44,7 @@ func show_ui(show: bool) -> void:
 
 
 func enable_water_consumption_control(enable: bool) -> void:
+	accept_rations_button.visible = enable
 	for child: CrewMemberUI in crew_container.get_children():
 		child.enable_water_consumption_control(enable)
 

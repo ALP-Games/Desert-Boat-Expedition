@@ -16,7 +16,7 @@ config_version=5
 [application]
 
 config/name="DesertBoatExpedition"
-run/main_scene="uid://cyjkapqiqydud"
+run/main_scene="uid://hrt8p7fyb26p"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,7 +24,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=2160
 window/size/viewport_height=1440
-window/size/mode=3
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="viewport"
