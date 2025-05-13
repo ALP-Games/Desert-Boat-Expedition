@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cq0bccqd46so1"]
+
+[ext_resource type="Environment" uid="uid://lc23abnon5ux" path="res://scenes/WorldDayEnviorment.tres" id="1_dq0xd"]
+[ext_resource type="AnimationLibrary" uid="uid://d7pgocx4ejcu" path="res://Assets/Animations/Day_Night.res" id="2_ki1nh"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jlm5j"]
+exposure_multiplier = 0.822
+dof_blur_far_enabled = true
+dof_blur_far_distance = 63.81
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q5uyg"]
+animation = &"Day_Night"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r0a0i"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_q5uyg")
+nodes/Animation/position = Vector2(240, 100)
+nodes/output/position = Vector2(520, 100)
+node_connections = [&"output", 0, &"Animation"]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_dq0xd")
+camera_attributes = SubResource("CameraAttributesPractical_jlm5j")
+
+[node name="Orbit" type="Node3D" parent="."]
+transform = Transform3D(0.522007, 0.752367, 0.401812, -0.803939, 0.276624, 0.526462, 0.284942, -0.597849, 0.749256, 0, 0, 0)
+
+[node name="Moon" type="DirectionalLight3D" parent="Orbit"]
+transform = Transform3D(1, 0, 0, 0, 0.872364, -0.488857, 0, 0.488857, 0.872364, 0, 0, 0)
+light_color = Color(0.387907, 0.478822, 0.772837, 1)
+light_bake_mode = 0
+shadow_enabled = true
+
+[node name="Sun" type="DirectionalLight3D" parent="Orbit"]
+transform = Transform3D(1, 0, 0, 0, -0.925925, 0.377707, 0, -0.377707, -0.925925, 0, 0, 0)
+light_color = Color(0.851694, 0.624916, 0.618175, 1)
+light_energy = 0.0
+light_bake_mode = 0
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Orbit"]
+root_node = NodePath("../Sun")
+libraries = {
+&"": ExtResource("2_ki1nh")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Orbit/AnimationPlayer"]
+root_node = NodePath("../../Sun")
+tree_root = SubResource("AnimationNodeBlendTree_r0a0i")
+anim_player = NodePath("..")
