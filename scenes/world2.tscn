@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://scripts/components/day_night_cycle.gd" id="2_1te1p"]
 [ext_resource type="Environment" uid="uid://lc23abnon5ux" path="res://scenes/WorldDayEnviorment.tres" id="3_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="4_q5uyg"]
+[ext_resource type="AnimationLibrary" uid="uid://d7pgocx4ejcu" path="res://Assets/Animations/Day_Night.res" id="4_r0a0i"]
 [ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="5_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://ui/gameplay_ui.tscn" id="6_hvnw1"]
 [ext_resource type="Texture2D" uid="uid://c7431itllior6" path="res://Textures/sand_albedo.png" id="7_jlm5j"]
@@ -12,165 +13,17 @@
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jlm5j"]
 exposure_multiplier = 0.822
+dof_blur_far_enabled = true
 dof_blur_far_distance = 63.81
 
-[sub_resource type="Animation" id="Animation_q5uyg"]
-resource_name = "Day_Night"
-length = 24.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:light_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.8478, 7.98724, 19.4, 23.9667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.963174, 0.870086, 0.820047, 1), Color(0.901125, 0.683055, 0.562325, 1), Color(0.695809, 0.441572, 0.7943, 1), Color(0.901125, 0.683055, 0.562325, 1), Color(0.963174, 0.870086, 0.820047, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 8, 24),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-7.85398, 0, 0), Vector3(-6.50226, 0, 0), Vector3(-1.5708, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:light_energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 7.3, 8.4, 19.2667, 20.4816),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [1.0, 1.0, 0.0, 0.0, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Moon:light_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(8, 18.9126),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.386653, 0.480321, 0.773939, 1), Color(0.388235, 0.478431, 0.772549, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Moon:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 24),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-10.9956, 0, 0), Vector3(-4.71239, 0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Moon:light_energy")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 7.87314, 9.38501, 17.0299, 17.7431),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 1.0, 1.0, 0.0]
-}
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q5uyg"]
+animation = &"Day_Night"
 
-[sub_resource type="Animation" id="Animation_r0a0i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-7.85398, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:light_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.963174, 0.870086, 0.820047, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:light_energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Moon:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.523599, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Moon:light_color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.963174, 0.870086, 0.820047, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Moon:light_energy")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvnw1"]
-_data = {
-&"Day_Night": SubResource("Animation_q5uyg"),
-&"RESET": SubResource("Animation_r0a0i")
-}
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r0a0i"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_q5uyg")
+nodes/Animation/position = Vector2(240, 100)
+nodes/output/position = Vector2(520, 100)
+node_connections = [&"output", 0, &"Animation"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
 albedo_color = Color(1, 0.893037, 0.651846, 1)
@@ -292,8 +145,13 @@ shadow_enabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/Orbit"]
 root_node = NodePath("../Sun")
 libraries = {
-&"": SubResource("AnimationLibrary_hvnw1")
+&"": ExtResource("4_r0a0i")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="WorldEnvironment/Orbit/AnimationPlayer"]
+root_node = NodePath("../../Sun")
+tree_root = SubResource("AnimationNodeBlendTree_r0a0i")
+anim_player = NodePath("..")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 visible = false
