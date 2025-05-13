@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyy23kqv2fduv"]
+
+[ext_resource type="ArrayMesh" uid="uid://bypb15y531gro" path="res://Assets/meshs/Rocks/Rocks_Cube_002.res" id="1_wiokq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wiokq"]
+size = Vector3(3.43481, 1.25586, 0.964966)
+
+[node name="Rock001" type="Node3D"]
+
+[node name="RocksCube002" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_wiokq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RocksCube002"]
+transform = Transform3D(0.991828, 0, -0.127584, 0, 1, 0, 0.127584, 0, 0.991828, -1.21741, -0.12793, -0.101728)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RocksCube002/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.45058e-09)
+shape = SubResource("BoxShape3D_wiokq")

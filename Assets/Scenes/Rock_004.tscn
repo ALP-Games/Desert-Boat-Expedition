@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1oic1xf3nutq"]
+
+[ext_resource type="ArrayMesh" uid="uid://bmbdni47i0j7q" path="res://Assets/meshs/Rocks/Rocks_Cube_005.res" id="1_jxui2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j0gtr"]
+radius = 1.11426
+
+[node name="Rock001" type="Node3D"]
+
+[node name="RocksCube005" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_jxui2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RocksCube005"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RocksCube005/StaticBody3D"]
+transform = Transform3D(0.865991, 0, -0.50006, 0, 1, 0, 0.50006, 0, 0.865991, 0.352508, 0, -0.0213408)
+shape = SubResource("CylinderShape3D_j0gtr")
