@@ -36,7 +36,7 @@ func _ready() -> void:
 	
 	for crew_member in crew_members:
 		crew_member.water_ration_changed.connect(func(delta: int): _water_consumption_total += delta)
-		_water_consumption_total += crew_member.water_consumption
+		_water_consumption_total += crew_member.rationed_water
 
 
 func _process(delta: float) -> void:

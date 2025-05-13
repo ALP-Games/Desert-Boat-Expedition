@@ -8,14 +8,17 @@ const GROUP_NAME := &"CrewOverviewUI"
 
 @onready var crew_container := $VBoxContainer/CrewContainer
 @onready var water_consumption_label := $VBoxContainer/WaterConsumptionPanel/Label
+@onready var accept_rations_button := $VBoxContainer/HBoxContainer/AcceptRations
 
 var _crew_cabin: CrewCabin
 var _crew_member_hash: int
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_to_group(GROUP_NAME)
 	add_to_group(GlobalStrings.UI_GROUP)
 	visible = false
+	accept_rations_button.visible = false
 	var player := get_tree().get_first_node_in_group(GlobalStrings.PLAYER_GROUP)
 	_crew_cabin = CrewCabin.core().get_from(player)
 	_update_water_consumption(_crew_cabin.get_water_consumption())
@@ -38,6 +41,11 @@ func show_ui(show: bool) -> void:
 		if crew_member_hash != _crew_member_hash:
 			_crew_member_hash = crew_member_hash
 			_rebuild_crew_container()
+
+
+func enable_water_consumption_control(enable: bool) -> void:
+	for child: CrewMemberUI in crew_container.get_children():
+		child.enable_water_consumption_control(enable)
 
 
 func _rebuild_crew_container() -> void:

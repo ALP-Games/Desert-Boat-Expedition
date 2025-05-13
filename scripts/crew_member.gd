@@ -6,7 +6,7 @@ signal water_ration_changed(delta: int)
 @export var portrait: Texture
 @export var water_consumption: int = 800
 
-var rationed_water: int = 800:
+var rationed_water: int = 0:
 	set(value):
 		var delta := value - rationed_water
 		rationed_water = value

@@ -1,7 +1,8 @@
 @tool
 class_name CrewMemberUI extends PanelContainer
 
-const WATER_FORMAT := &"%d/%d drams"
+const WATER_RATION_INCREMENT := 50
+const WATER_FORMAT := "%d/%d drams"
 
 # Texture
 @export var character_name: String = "Name":
@@ -36,7 +37,10 @@ func set_crew_member(crew_member: CrewMember) -> void:
 	_crew_member = crew_member
 	character_name = crew_member.name
 	portrait_texture = crew_member.portrait
+	_crew_member.water_ration_changed.connect(_on_water_ration_change)
 	update_water_consumption()
+	_update_button_avalibility()
+
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -44,9 +48,31 @@ func _ready() -> void:
 		portrait_rect.texture = portrait_texture
 	if not Engine.is_editor_hint():
 		water_consumption_control.visible = false
+		button_add_water.pressed.connect(_add_water.bind(WATER_RATION_INCREMENT))
+		button_subtract_water.pressed.connect(_add_water.bind(-WATER_RATION_INCREMENT))
+
+
+func _on_water_ration_change(_delta: int) -> void:
+	update_water_consumption()
+	_update_button_avalibility()
+
+
+func _update_button_avalibility() -> void:
+	if _crew_member.rationed_water < WATER_RATION_INCREMENT:
+		button_subtract_water.disabled = true
+	else:
+		button_subtract_water.disabled = false
 
 
 func update_water_consumption() -> void:
 	if not _crew_member:
 		return
 	water_consumption_label.text = WATER_FORMAT % [_crew_member.rationed_water, _crew_member.water_consumption]
+
+
+func enable_water_consumption_control(enable: bool) -> void:
+	water_consumption_control.visible = enable
+
+
+func _add_water(amount: int) -> void:
+	_crew_member.rationed_water += amount
