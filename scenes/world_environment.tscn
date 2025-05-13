@@ -2,12 +2,13 @@
 
 [ext_resource type="Environment" uid="uid://lc23abnon5ux" path="res://scenes/WorldDayEnviorment.tres" id="1_dq0xd"]
 [ext_resource type="AnimationLibrary" uid="uid://d7pgocx4ejcu" path="res://Assets/Animations/Day_Night.res" id="2_ki1nh"]
-[ext_resource type="Script" uid="uid://8hv16rtxk88t" path="res://scripts/day_night_visual_controller.gd" id="2_qdl06"]
+[ext_resource type="Script" path="res://scripts/day_night_visual_controller.gd" id="2_qdl06"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jlm5j"]
 exposure_multiplier = 0.822
 dof_blur_far_enabled = true
-dof_blur_far_distance = 63.81
+dof_blur_far_distance = 70.0
+dof_blur_far_transition = 50.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q5uyg"]
 animation = &"Day_Night"

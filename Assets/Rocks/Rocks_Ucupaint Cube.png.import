@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm0tyng8q7ul2"
-path.s3tc="res://.godot/imported/packed_normal_roughness.png-33be8bd130feeb05d983b1b44bc2103e.s3tc.ctex"
+uid="uid://dtoya5wyckv5h"
+path.s3tc="res://.godot/imported/Rocks_Ucupaint Cube.png-1807359ae436a5d8fb7c28e25b61ddf5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "a82dfb725a1b2fd241a488cfd7178de1"
+}
 
 [deps]
 
-source_file="res://Textures/packed_normal_roughness.png"
-dest_files=["res://.godot/imported/packed_normal_roughness.png-33be8bd130feeb05d983b1b44bc2103e.s3tc.ctex"]
+source_file="res://Assets/Rocks/Rocks_Ucupaint Cube.png"
+dest_files=["res://.godot/imported/Rocks_Ucupaint Cube.png-1807359ae436a5d8fb7c28e25b61ddf5.s3tc.ctex"]
 
 [params]
 
@@ -20,7 +23,7 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
@@ -32,4 +35,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
