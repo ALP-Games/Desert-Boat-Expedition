@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw4savqry1x4e"]
+[gd_scene load_steps=8 format=3 uid="uid://bw4savqry1x4e"]
 
 [ext_resource type="Script" uid="uid://d2f03qtum3hdf" path="res://scripts/ui/gameplay_ui.gd" id="1_nm0ya"]
+[ext_resource type="StyleBox" uid="uid://6cmvb1lpphkm" path="res://resources/ui/bar_shadow.tres" id="2_hp7tp"]
+[ext_resource type="StyleBox" uid="uid://b6dfpynohgeok" path="res://resources/ui/white_bar.tres" id="2_w5py3"]
 [ext_resource type="LabelSettings" uid="uid://bls76s8ny02og" path="res://resources/fonts/basic_font.tres" id="2_wf0n7"]
 [ext_resource type="Texture2D" uid="uid://dmri8bdqqp54q" path="res://Assets/ui/other/grey_circle.png" id="3_7e4rd"]
 [ext_resource type="Texture2D" uid="uid://oph7k1q278wh" path="res://Assets/ui/other/grey_boxTick.png" id="4_hirpm"]
@@ -17,6 +19,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_nm0ya")
+
+[node name="Durability" type="ProgressBar" parent="."]
+modulate = Color(0.8, 0.691733, 0.576, 1)
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+offset_right = 500.0
+offset_bottom = 50.0
+theme_override_styles/background = ExtResource("2_hp7tp")
+theme_override_styles/fill = ExtResource("2_w5py3")
+value = 50.0
+show_percentage = false
 
 [node name="Time" type="PanelContainer" parent="."]
 layout_mode = 1

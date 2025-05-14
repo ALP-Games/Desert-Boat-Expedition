@@ -97,10 +97,9 @@ func _ready() -> void:
 	#print("Minutes elapsed - ", _minutes_elapsed)
 	#print("Current day - {0}; Current time {1}:{2}".format([_current_day, current_hours, current_minutes]))
 
-var real_time_elasped: float = 0.0
 
+## Maybe use a timer node, you degenerate?
 func _process(delta: float) -> void:
-	real_time_elasped += delta
 	_realtime_elapsed += delta
 	if get_minutes_passed() >= _minutes_in_a_day:
 		_current_day += 1

@@ -9,6 +9,7 @@ const ACTIVE_TICK := preload("res://Assets/ui/other/grey_boxTick.png")
 
 const GROUP_NAME := &"GameplayUI"
 
+@onready var durability_bar := $Durability
 @onready var hours_label := $Time/Hours
 @onready var water_laber := $Water/Label
 @onready var refill_prompt := $"Refill Prompt"
@@ -17,6 +18,7 @@ const GROUP_NAME := &"GameplayUI"
 
 var _player: RigidBody3D
 var _day_night_cycle: DayNightCycle
+var _durability_component: DurabilityComponent
 
 var speed_selection_nodes: Array[TextureRect]
 
@@ -45,11 +47,15 @@ func _ready() -> void:
 	_collect_speed_selection_nodes()
 	var ship_movement := ShipMovement.core().get_from(_player) as ShipMovement
 	ship_movement.acceleration_variant_changed.connect(_update_speed_indicator)
+	
+	_durability_component = DurabilityComponent.core().get_from(_player)
+	durability_bar.max_value = _durability_component.max_durability
 
 
 func _process(delta: float) -> void:
 	_update_time_label()
 	_update_speed_label()
+	_update_durability()
 
 
 func _collect_speed_selection_nodes() -> void:
@@ -78,3 +84,7 @@ func _enable_refill_prompt(other_storage: Node3D, enable_prompt: bool) -> void:
 
 func _update_speed_label() -> void:
 	speed_label.text = SPEED_FORMAT % [_player.linear_velocity.length()]
+
+
+func _update_durability() -> void:
+	durability_bar.value = _durability_component.get_durability()
