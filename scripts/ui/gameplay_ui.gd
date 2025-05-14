@@ -26,6 +26,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	var world := get_tree().get_first_node_in_group(World.GROUP_NAME)
 	_day_night_cycle = DayNightCycle.core().get_from(world)
 	#day_night_cycle.minutes_updated.connect(_update_time_label)

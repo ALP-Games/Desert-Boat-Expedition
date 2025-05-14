@@ -2,7 +2,7 @@
 
 [ext_resource type="Environment" uid="uid://lc23abnon5ux" path="res://scenes/WorldDayEnviorment.tres" id="1_dq0xd"]
 [ext_resource type="AnimationLibrary" uid="uid://d7pgocx4ejcu" path="res://Assets/Animations/Day_Night.res" id="2_ki1nh"]
-[ext_resource type="Script" path="res://scripts/day_night_visual_controller.gd" id="2_qdl06"]
+[ext_resource type="Script" uid="uid://8hv16rtxk88t" path="res://scripts/day_night_visual_controller.gd" id="2_qdl06"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jlm5j"]
 exposure_multiplier = 0.822
@@ -18,7 +18,6 @@ animation = &"Day_Night"
 [sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_ki1nh"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r0a0i"]
-graph_offset = Vector2(-181, 51)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_q5uyg")
 nodes/Animation/position = Vector2(100, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ki1nh")

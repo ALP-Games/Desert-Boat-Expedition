@@ -707,7 +707,9 @@ script = ExtResource("1_7d436")
 
 [node name="DayNightCycle" type="Node" parent="."]
 script = ExtResource("2_1te1p")
-current_minutes = 45
+morning_hour = 6
+night_hour = 18
+current_hour = 6
 metadata/_custom_type_script = "uid://bh5v78aga41pd"
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_r0a0i")]
