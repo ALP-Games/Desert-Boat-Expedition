@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MechanicProfession" load_steps=2 format=3 uid="uid://qjto3qimafn3"]
+
+[ext_resource type="Script" uid="uid://2harkh8q5q6k" path="res://scripts/crew/mechanic_profession.gd" id="1_yevk5"]
+
+[resource]
+script = ExtResource("1_yevk5")
+minimum_speed_to_repair = 0.5
+repair_points_per_minute = 0.5
+metadata/_custom_type_script = "uid://2harkh8q5q6k"

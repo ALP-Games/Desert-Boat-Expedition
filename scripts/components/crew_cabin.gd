@@ -7,6 +7,7 @@ signal water_consumption_changed(consumption: int)
 @export var consumptions_per_day: int = 48
 @export var crew_members: Array[CrewMember]
 
+var _parent: Node3D
 var _day_night_cycle: DayNightCycle
 var _water_storage: WaterStorage
 
@@ -30,6 +31,7 @@ func get_water_consumption() -> int:
 
 
 func _ready() -> void:
+	_parent = get_parent()
 	var wrold: World = get_tree().get_first_node_in_group(World.GROUP_NAME)
 	_day_night_cycle = DayNightCycle.core().get_from(wrold)
 	_water_storage = WaterStorage.core().get_from(get_parent())
@@ -38,8 +40,20 @@ func _ready() -> void:
 		crew_member.water_ration_changed.connect(func(delta: int): _water_consumption_total += delta)
 		_water_consumption_total += crew_member.rationed_water
 
-
 func _process(delta: float) -> void:
+	_process_water(delta)
+
+
+func _physics_process(delta: float) -> void:
+	_process_crew_members(delta)
+
+
+func _process_crew_members(delta: float) -> void:
+	for crew_member in crew_members:
+		crew_member.process(delta, _parent)
+
+
+func _process_water(delta: float) -> void:
 	_consumption_time_elapsed += delta
 	if _water_consumption_interval == INF:
 		_consumption_time_elapsed = 0

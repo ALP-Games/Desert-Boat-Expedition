@@ -14,7 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b5gkgr0ghx6a4" path="res://Assets/meshs/boat/Sail_Sphere.res" id="9_03y04"]
 [ext_resource type="Script" uid="uid://cjax4gx8usajn" path="res://scripts/components/crew_cabin.gd" id="9_48mkp"]
 [ext_resource type="Script" uid="uid://vpefl0oijica" path="res://scripts/components/water_storage.gd" id="10_bseor"]
-[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew_member.gd" id="10_mx31c"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew/crew_member.gd" id="10_mx31c"]
 [ext_resource type="Resource" uid="uid://c31gecwnnajnb" path="res://resources/crew_members/sailor_william.tres" id="11_fs4we"]
 [ext_resource type="Script" uid="uid://dq4fcyjmvce0i" path="res://scripts/components/water_storage_interacor.gd" id="11_tlr80"]
 [ext_resource type="Resource" uid="uid://bdbalsk1v1fqv" path="res://resources/crew_members/mechanic_chucky.tres" id="12_dschd"]
