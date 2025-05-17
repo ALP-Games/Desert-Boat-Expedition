@@ -17,7 +17,9 @@ var rationed_water: int = 0:
 		rationed_water = value
 		water_ration_changed.emit(delta)
 
-
+## Returns float value
+## 1.0 means the efficiency is at 100%
+## 0.0 means the efficiency is at 0%
 func get_current_efficiency() -> float:
 	return _current_efficiency / efficiency_max
 

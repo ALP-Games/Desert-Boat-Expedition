@@ -34,3 +34,9 @@ func _ready() -> void:
 	stat_representation_bar.modulate = bar_color
 	stat_representation_bar.fill_mode = bar_fill_mode
 	#stat_representation_bar.add_theme_stylebox_override("fill", bar_style_texture)
+
+## Progress is from 0.0 to 1.0
+## 1.0 means the bar will be full
+## 0.0 means the bar is empty
+func set_progress(progress: float) -> void:
+	stat_representation_bar.value = stat_representation_bar.max_value * progress

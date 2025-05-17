@@ -12,5 +12,7 @@ func get_profession_name() -> StringName:
 	return &""
 
 
-func perform_work(delta: float, crew_member: CrewMember, player_node: Node3D) -> void:
+## Returns effort spent on work
+func perform_work(delta: float, crew_member: CrewMember, player_node: Node3D) -> float:
 	assert(false, "Has to be overriden by implementation")
+	return 0.0
