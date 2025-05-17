@@ -4,7 +4,7 @@ signal water_ration_changed(delta: int)
 
 @export var name: String
 @export var portrait: Texture
-@export var water_consumption: int = 800
+@export var _water_consumption: int = 800
 
 @export var profession: IProfession
 
@@ -16,6 +16,8 @@ var rationed_water: int = 0:
 		var delta := value - rationed_water
 		rationed_water = value
 		water_ration_changed.emit(delta)
+
+var _water_consumption_multiplier: float = 1.0
 
 ## Returns float value
 ## 1.0 means the efficiency is at 100%
@@ -29,3 +31,12 @@ func get_current_efficiency() -> float:
 func process(delta: float, player_node: Node3D) -> void:
 	if profession:
 		profession.perform_work(delta, self, player_node)
+
+
+func set_water_consumption_multiplier(multiplier: float) -> void:
+	_water_consumption_multiplier = multiplier
+	water_ration_changed.emit(0.0)
+
+
+func get_water_consumption() -> int:
+	return _water_consumption * _water_consumption_multiplier

@@ -7,7 +7,7 @@ class_name IProfession extends Resource
 # I think we need a function interface to perform the job
 # but we also need a function for job condition?
 
-func get_profession_name() -> StringName:
+static func get_profession_name() -> StringName:
 	assert(false, "Has to be overriden by implementation")
 	return &""
 

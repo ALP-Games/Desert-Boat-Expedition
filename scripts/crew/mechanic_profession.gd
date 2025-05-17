@@ -6,7 +6,7 @@ class_name MechanicProfession extends IProfession
 @export var effort_for_work: float = 1.0
 
 
-func get_profession_name() -> StringName:
+static func get_profession_name() -> StringName:
 	return &"Mechanic"
 
 

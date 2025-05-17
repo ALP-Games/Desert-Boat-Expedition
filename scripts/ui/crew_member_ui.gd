@@ -78,7 +78,7 @@ func _update_button_avalibility() -> void:
 func _update_water_consumption() -> void:
 	if not _crew_member:
 		return
-	water_consumption_label.text = WATER_FORMAT % [_crew_member.rationed_water, _crew_member.water_consumption]
+	water_consumption_label.text = WATER_FORMAT % [_crew_member.rationed_water, _crew_member.get_water_consumption()]
 
 
 func enable_water_consumption_control(enable: bool) -> void:
