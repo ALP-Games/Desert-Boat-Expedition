@@ -25,6 +25,12 @@ var _water_consumption_multiplier: float = 1.0
 func get_current_efficiency() -> float:
 	return _current_efficiency / efficiency_max
 
+
+func initialize(player_node: Node3D) -> void:
+	if profession:
+		profession.initialize(self, player_node)
+
+
 # this is for a 1 day grace period
 #var consumes_water: bool = false
 

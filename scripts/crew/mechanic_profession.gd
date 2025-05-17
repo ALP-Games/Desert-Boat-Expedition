@@ -10,10 +10,13 @@ static func get_profession_name() -> StringName:
 	return &"Mechanic"
 
 
+func initialize(crew_member: CrewMember, player_node: Node) -> void:
+	pass
+
+
 # TODO: add caching function to professions
 # or add caching here directly
-func perform_work(delta: float, crew_member: CrewMember, player_node: Node3D) -> float:
-	
+func perform_work(delta: float, crew_member: CrewMember, player_node: Node) -> float:
 	if player_node is not RigidBody3D or \
 	player_node.linear_velocity.length() > minimum_speed_to_repair:
 		return 0.0
