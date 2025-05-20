@@ -16,10 +16,10 @@ var _crew_member_hash: int
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_to_group(GROUP_NAME)
-	add_to_group(GlobalStrings.UI_GROUP)
+	add_to_group(DeserExpedition.Groups.UI)
 	visible = false
 	accept_rations_button.visible = false
-	var player := get_tree().get_first_node_in_group(GlobalStrings.PLAYER_GROUP)
+	var player := get_tree().get_first_node_in_group(DeserExpedition.Groups.PLAYER)
 	_crew_cabin = CrewCabin.core().get_from(player)
 	_update_water_consumption(_crew_cabin.get_water_consumption())
 	_crew_cabin.water_consumption_changed.connect(_update_water_consumption)

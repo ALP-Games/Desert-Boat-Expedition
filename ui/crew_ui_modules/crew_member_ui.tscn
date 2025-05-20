@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bm3qs63t14ty6"]
 
-[ext_resource type="Script" uid="uid://cnpf1156pmjyw" path="res://scripts/ui/crew_member_ui.gd" id="1_je8gh"]
+[ext_resource type="Script" uid="uid://cnpf1156pmjyw" path="res://addons/desert_expedition_extension/scripts/ui/crew_member_ui.gd" id="1_je8gh"]
 [ext_resource type="Texture2D" uid="uid://dr4aosf0g44j0" path="res://Assets/ui/Characters/Sailor.jpg" id="2_pswj2"]
 [ext_resource type="PackedScene" uid="uid://et4gus5ymfwd" path="res://ui/crew_ui_modules/stat.tscn" id="3_sqxfy"]
 [ext_resource type="StyleBox" uid="uid://bkhg7ychqy034" path="res://resources/ui/metal_box_button.tres" id="4_5ilsq"]

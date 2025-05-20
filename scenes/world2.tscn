@@ -1,15 +1,19 @@
-[gd_scene load_steps=24 format=3 uid="uid://hrt8p7fyb26p"]
+[gd_scene load_steps=29 format=3 uid="uid://hrt8p7fyb26p"]
 
-[ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://scripts/world.gd" id="1_7d436"]
-[ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://scripts/components/day_night_cycle.gd" id="2_1te1p"]
+[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/world.gd" id="1_7d436"]
+[ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://addons/desert_expedition_extension/scripts/components/day_night_cycle.gd" id="2_1te1p"]
 [ext_resource type="PackedScene" uid="uid://cq0bccqd46so1" path="res://scenes/world_environment.tscn" id="3_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="4_q5uyg"]
-[ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://scripts/follow_camrea.gd" id="5_r0a0i"]
+[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/follow_camrea.gd" id="5_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://ui/gameplay_ui.tscn" id="6_hvnw1"]
 [ext_resource type="Texture2D" uid="uid://c7431itllior6" path="res://Textures/sand_albedo.png" id="7_jlm5j"]
 [ext_resource type="PackedScene" uid="uid://b0qo82mla5uxw" path="res://ui/crew_overview_ui.tscn" id="7_q5uyg"]
 [ext_resource type="Texture2D" uid="uid://dm0tyng8q7ul2" path="res://Textures/packed_normal_roughness.png" id="8_q5uyg"]
 [ext_resource type="PackedScene" uid="uid://bcblh2yvdnteg" path="res://scenes/artificial_ground.tscn" id="11_hvnw1"]
+[ext_resource type="PackedScene" uid="uid://buuj7l6edb5o6" path="res://scenes/oasis.tscn" id="11_r15pr"]
+[ext_resource type="Script" uid="uid://bna46nv7twv8m" path="res://addons/desert_expedition_extension/scripts/components/component_initializer.gd" id="12_hixyl"]
+[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/icomponent_initializer.gd" id="13_086et"]
+[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/water_storage_initializer.gd" id="14_i86qd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
 albedo_color = Color(1, 0.893037, 0.651846, 1)
@@ -702,6 +706,12 @@ detiling_shift = 0.221
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_hvnw1")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_r0a0i")])
 
+[sub_resource type="Resource" id="Resource_trmnl"]
+script = ExtResource("14_i86qd")
+water_capacity = 4000
+starting_water = 4000
+metadata/_custom_type_script = "uid://vnoephrpf5s1"
+
 [node name="World2" type="Node3D"]
 script = ExtResource("1_7d436")
 
@@ -724,10 +734,10 @@ mesh = SubResource("PlaneMesh_nnsk1")
 shape = SubResource("ConvexPolygonShape3D_rwgxs")
 
 [node name="Ship" parent="." instance=ExtResource("4_q5uyg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.323, 11.4617, 215.985)
+transform = Transform3D(0.200685, 0, 0.979656, 0.168633, 0.985073, -0.034545, -0.965033, 0.172135, 0.197689, 66.4937, 10.3316, 172.293)
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("object_to_follow")]
-transform = Transform3D(0.78858, 0.462543, -0.405211, 1.30621e-08, 0.658952, 0.752185, 0.614932, -0.593158, 0.519636, 196.235, 37.3448, 229.74)
+transform = Transform3D(0.78858, 0.462543, -0.405211, 1.30621e-08, 0.658952, 0.752185, 0.614932, -0.593158, 0.519636, 46.8154, 47.9412, 197.698)
 script = ExtResource("5_r0a0i")
 object_to_follow = NodePath("../Ship")
 
@@ -753,3 +763,11 @@ metadata/_edit_lock_ = true
 
 [node name="ArtificialGround" parent="." node_paths=PackedStringArray("object_to_follow") instance=ExtResource("11_hvnw1")]
 object_to_follow = NodePath("../Ship")
+
+[node name="Oasis" parent="." instance=ExtResource("11_r15pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.7251, 4.98253, -43.8181)
+
+[node name="ComponentInitializer" type="Node" parent="Oasis"]
+script = ExtResource("12_hixyl")
+component_initializers = Array[ExtResource("13_086et")]([SubResource("Resource_trmnl")])
+metadata/_custom_type_script = "uid://bna46nv7twv8m"

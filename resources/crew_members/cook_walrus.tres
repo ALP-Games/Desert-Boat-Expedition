@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CrewMember" load_steps=4 format=3 uid="uid://q4yc2ewcdqth"]
 
 [ext_resource type="Texture2D" uid="uid://4ogoxpas68hx" path="res://Assets/ui/Characters/Chef.jpg" id="1_5u0n7"]
-[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew/crew_member.gd" id="1_lcpbf"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://addons/desert_expedition_extension/scripts/crew/crew_member.gd" id="1_lcpbf"]
 [ext_resource type="Resource" uid="uid://bn26jfjabr7go" path="res://resources/professions/cook_profession.tres" id="2_engyf"]
 
 [resource]

@@ -76,6 +76,6 @@ func _transition_to_gameplay_stae() -> void:
 
 
 func _disable_all_ui_nodes() -> void:
-	var ui_nodes := get_tree().get_nodes_in_group(GlobalStrings.UI_GROUP)
+	var ui_nodes := get_tree().get_nodes_in_group(DeserExpedition.Groups.UI)
 	for ui_node: Control in ui_nodes:
 		ui_node.visible = false

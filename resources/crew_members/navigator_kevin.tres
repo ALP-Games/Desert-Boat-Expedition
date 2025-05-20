@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="CrewMember" load_steps=3 format=3 uid="uid://cmlk7gf1kj8u4"]
+[gd_resource type="Resource" script_class="CrewMember" load_steps=4 format=3 uid="uid://cmlk7gf1kj8u4"]
 
 [ext_resource type="Texture2D" uid="uid://b4audl7l4iopn" path="res://Assets/ui/Characters/Navigator.jpg" id="1_88ilc"]
-[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew/crew_member.gd" id="1_hp0ds"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://addons/desert_expedition_extension/scripts/crew/crew_member.gd" id="1_hp0ds"]
+[ext_resource type="Resource" uid="uid://d0u8uk5aaf2rj" path="res://resources/professions/navigator_profession.tres" id="2_cfxv3"]
 
 [resource]
 script = ExtResource("1_hp0ds")
 name = "Kevin (Navigator)"
 portrait = ExtResource("1_88ilc")
-water_consumption = 800
+_water_consumption = 800
+profession = ExtResource("2_cfxv3")
+efficiency_max = 100.0
 metadata/_custom_type_script = "uid://02hrgmpa5msp"

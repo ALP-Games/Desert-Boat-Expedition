@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://cnaoyuqti0c78" path="res://Assets/ui/Characters/Mechanic.jpg" id="1_fdw0i"]
 [ext_resource type="Resource" uid="uid://qjto3qimafn3" path="res://resources/professions/mechanic_profession.tres" id="2_tcvqa"]
-[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew/crew_member.gd" id="3_qp5hy"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://addons/desert_expedition_extension/scripts/crew/crew_member.gd" id="3_qp5hy"]
 
 [resource]
 script = ExtResource("3_qp5hy")
 name = "Chucky (Mechanic)"
 portrait = ExtResource("1_fdw0i")
-water_consumption = null
+_water_consumption = 800
 profession = ExtResource("2_tcvqa")
 efficiency_max = 100.0
 metadata/_custom_type_script = "uid://02hrgmpa5msp"

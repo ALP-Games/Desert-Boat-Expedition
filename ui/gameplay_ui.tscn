@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bw4savqry1x4e"]
 
-[ext_resource type="Script" uid="uid://d2f03qtum3hdf" path="res://scripts/ui/gameplay_ui.gd" id="1_nm0ya"]
+[ext_resource type="Script" uid="uid://d2f03qtum3hdf" path="res://addons/desert_expedition_extension/scripts/ui/gameplay_ui.gd" id="1_nm0ya"]
 [ext_resource type="StyleBox" uid="uid://6cmvb1lpphkm" path="res://resources/ui/bar_shadow.tres" id="2_hp7tp"]
 [ext_resource type="StyleBox" uid="uid://b6dfpynohgeok" path="res://resources/ui/white_bar.tres" id="2_w5py3"]
 [ext_resource type="LabelSettings" uid="uid://bls76s8ny02og" path="res://resources/fonts/basic_font.tres" id="2_wf0n7"]

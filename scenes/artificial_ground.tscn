@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcblh2yvdnteg"]
 
-[ext_resource type="Script" uid="uid://by0i0pg2448xb" path="res://scripts/artificial_ground.gd" id="1_pv8ik"]
+[ext_resource type="Script" uid="uid://by0i0pg2448xb" path="res://addons/desert_expedition_extension/scripts/artificial_ground.gd" id="1_pv8ik"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_epvbq"]
 size = Vector3(15, 0.02, 15)

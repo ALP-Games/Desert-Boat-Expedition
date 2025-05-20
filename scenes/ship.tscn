@@ -1,29 +1,33 @@
-[gd_scene load_steps=25 format=3 uid="uid://dawi8sppkthck"]
+[gd_scene load_steps=28 format=3 uid="uid://dawi8sppkthck"]
 
-[ext_resource type="Script" uid="uid://dmc88mf4o0qp3" path="res://scripts/components/ui_controller.gd" id="1_03y04"]
-[ext_resource type="Script" uid="uid://d2w5epd8574bi" path="res://scripts/extended_rigid_body_3d.gd" id="1_83dbu"]
-[ext_resource type="Script" uid="uid://dqcp7anvrr2a5" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
-[ext_resource type="Script" uid="uid://c652vgg0rml8m" path="res://scripts/components/durability_component.gd" id="2_83dbu"]
-[ext_resource type="Script" uid="uid://c0674h4ynhvmk" path="res://addons/godot_extension_core_gdscript/Generated/Input/iinput_polling_resource.gd" id="2_tfsc7"]
-[ext_resource type="Script" uid="uid://j0erwxd8lwuc" path="res://scripts/components/durability_degrader.gd" id="3_xifwb"]
+[ext_resource type="Script" uid="uid://dmc88mf4o0qp3" path="res://addons/desert_expedition_extension/scripts/components/ui_controller.gd" id="1_03y04"]
+[ext_resource type="Script" uid="uid://d2w5epd8574bi" path="res://addons/desert_expedition_extension/scripts/extended_rigid_body_3d.gd" id="1_83dbu"]
+[ext_resource type="Script" uid="uid://bqov1a88q4e4s" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
+[ext_resource type="Script" uid="uid://c652vgg0rml8m" path="res://addons/desert_expedition_extension/scripts/components/durability_component.gd" id="2_83dbu"]
+[ext_resource type="Script" uid="uid://51cshaltvw8l" path="res://addons/godot_extension_core_gdscript/Generated/Input/iinput_polling_resource.gd" id="2_tfsc7"]
+[ext_resource type="Script" uid="uid://j0erwxd8lwuc" path="res://addons/desert_expedition_extension/scripts/components/durability_degrader.gd" id="3_xifwb"]
 [ext_resource type="Resource" uid="uid://b7heq3x6sqytr" path="res://resources/controls/mkb_poll.tres" id="4_7j21i"]
-[ext_resource type="Script" uid="uid://cms5oajqm81q0" path="res://scripts/components/ship_movement.gd" id="5_gudjc"]
+[ext_resource type="Script" uid="uid://cms5oajqm81q0" path="res://addons/desert_expedition_extension/scripts/components/ship_movement.gd" id="5_gudjc"]
 [ext_resource type="ArrayMesh" uid="uid://dcsssn342eoeb" path="res://Assets/meshs/boat/Sail_Cube_001.res" id="6_itrim"]
 [ext_resource type="ArrayMesh" uid="uid://c3qy52vxjdbmd" path="res://Assets/meshs/boat/Sail_Cube_002.res" id="7_bseor"]
 [ext_resource type="ArrayMesh" uid="uid://bysdgemp6tao0" path="res://Assets/meshs/boat/Sail_Cube_004.res" id="8_tlr80"]
 [ext_resource type="ArrayMesh" uid="uid://b5gkgr0ghx6a4" path="res://Assets/meshs/boat/Sail_Sphere.res" id="9_03y04"]
-[ext_resource type="Script" uid="uid://cjax4gx8usajn" path="res://scripts/components/crew_cabin.gd" id="9_48mkp"]
-[ext_resource type="Script" uid="uid://vpefl0oijica" path="res://scripts/components/water_storage.gd" id="10_bseor"]
-[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://scripts/crew/crew_member.gd" id="10_mx31c"]
+[ext_resource type="Script" uid="uid://cjax4gx8usajn" path="res://addons/desert_expedition_extension/scripts/components/crew_cabin.gd" id="9_48mkp"]
+[ext_resource type="Script" uid="uid://vpefl0oijica" path="res://addons/desert_expedition_extension/scripts/components/water_storage.gd" id="10_bseor"]
+[ext_resource type="Script" uid="uid://02hrgmpa5msp" path="res://addons/desert_expedition_extension/scripts/crew/crew_member.gd" id="10_mx31c"]
 [ext_resource type="Resource" uid="uid://c31gecwnnajnb" path="res://resources/crew_members/sailor_william.tres" id="11_fs4we"]
-[ext_resource type="Script" uid="uid://dq4fcyjmvce0i" path="res://scripts/components/water_storage_interacor.gd" id="11_tlr80"]
+[ext_resource type="Script" uid="uid://dq4fcyjmvce0i" path="res://addons/desert_expedition_extension/scripts/components/water_storage_interacor.gd" id="11_tlr80"]
 [ext_resource type="Resource" uid="uid://bdbalsk1v1fqv" path="res://resources/crew_members/mechanic_chucky.tres" id="12_dschd"]
 [ext_resource type="Resource" uid="uid://q4yc2ewcdqth" path="res://resources/crew_members/cook_walrus.tres" id="13_83dbu"]
 [ext_resource type="Resource" uid="uid://cmlk7gf1kj8u4" path="res://resources/crew_members/navigator_kevin.tres" id="14_xifwb"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xifwb"]
+radius = 0.80822
+height = 4.20057
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2gnfn"]
 radius = 1.07466
-height = 12.212
+height = 8.58828
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dschd"]
 size = Vector3(2.00598, 0.37619, 4.96179)
@@ -32,6 +36,14 @@ size = Vector3(2.00598, 0.37619, 4.96179)
 radius = 0.308526
 height = 7.784
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_swuwe"]
+radius = 0.578208
+height = 4.94437
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vtx4"]
+radius = 0.221345
+height = 9.94713
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_tlr80"]
 radius = 8.0
 
@@ -39,6 +51,7 @@ radius = 8.0
 axis_lock_angular_z = true
 mass = 6000.0
 gravity_scale = 1.5
+center_of_mass_mode = 1
 contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_83dbu")
@@ -71,19 +84,28 @@ metadata/_custom_type_script = "uid://vpefl0oijica"
 script = ExtResource("1_q631a")
 _input_pollers = Array[ExtResource("2_tfsc7")]([ExtResource("4_7j21i")])
 
-[node name="ShipMovement" type="Node" parent="."]
+[node name="ShipMovement" type="Node" parent="." node_paths=PackedStringArray("force_applicator")]
 script = ExtResource("5_gudjc")
 drag_coefficient = 2350.0
 turn_acceleration = 7.0
 turn_factor_sensitivity = 25.0
 angular_drag = 400000.0
+force_applicator = NodePath("../ForceApplicator")
 max_yaw = 0.349066
 metadata/_custom_type_script = "uid://cms5oajqm81q0"
+
+[node name="ForceApplicator" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 2.5)
+gizmo_extents = 3.0
 
 [node name="CrewCabin" type="Node" parent="."]
 script = ExtResource("9_48mkp")
 crew_members = Array[ExtResource("10_mx31c")]([ExtResource("11_fs4we"), ExtResource("12_dschd"), ExtResource("13_83dbu"), ExtResource("14_xifwb")])
 metadata/_custom_type_script = "uid://cjax4gx8usajn"
+
+[node name="CollisionNose" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.228198, 0.973615, 0, -0.973615, 0.228198, 0.005476, 0.585931, -5.68956)
+shape = SubResource("CapsuleShape3D_xifwb")
 
 [node name="CollisionMainBody" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.458523, -0.372)
@@ -96,6 +118,14 @@ shape = SubResource("BoxShape3D_dschd")
 [node name="CollisionSideBody" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.17822, -0.205089, -0.455574)
 shape = SubResource("CapsuleShape3D_dschd")
+
+[node name="CollisionShapeBack" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.375885, 0.926667, 0, -0.926667, -0.375885, 0.005476, 1.25352, 5.51913)
+shape = SubResource("CapsuleShape3D_swuwe")
+
+[node name="Mast" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.27553, -2.51544)
+shape = SubResource("CapsuleShape3D_6vtx4")
 
 [node name="ShipModel" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

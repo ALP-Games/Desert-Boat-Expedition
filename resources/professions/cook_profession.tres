@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CookProfession" load_steps=2 format=3 uid="uid://bn26jfjabr7go"]
 
-[ext_resource type="Script" uid="uid://yltfanlvgg6" path="res://scripts/crew/cook_profession.gd" id="1_l1pq2"]
+[ext_resource type="Script" uid="uid://yltfanlvgg6" path="res://addons/desert_expedition_extension/scripts/crew/cook_profession.gd" id="1_l1pq2"]
 
 [resource]
 script = ExtResource("1_l1pq2")

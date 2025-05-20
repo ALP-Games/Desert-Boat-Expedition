@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://buuj7l6edb5o6"]
 
-[ext_resource type="Script" uid="uid://vpefl0oijica" path="res://scripts/components/water_storage.gd" id="1_23g5j"]
+[ext_resource type="Script" uid="uid://vpefl0oijica" path="res://addons/desert_expedition_extension/scripts/components/water_storage.gd" id="1_23g5j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_coqjv"]
 radius = 15.0

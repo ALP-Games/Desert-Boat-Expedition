@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://et4gus5ymfwd"]
 
-[ext_resource type="Script" uid="uid://cnc7mix2qojo1" path="res://scripts/ui/stat_ui.gd" id="1_ihmyk"]
+[ext_resource type="Script" uid="uid://cnc7mix2qojo1" path="res://addons/desert_expedition_extension/scripts/ui/stat_ui.gd" id="1_ihmyk"]
 [ext_resource type="StyleBox" uid="uid://b6dfpynohgeok" path="res://resources/ui/white_bar.tres" id="2_dc6kh"]
 
 [node name="StatUI" type="HBoxContainer"]

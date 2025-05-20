@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NavigatorProfession" load_steps=2 format=3 uid="uid://d0u8uk5aaf2rj"]
+
+[ext_resource type="Script" uid="uid://c4y2uu1itc40y" path="res://addons/desert_expedition_extension/scripts/crew/navigator_profession.gd" id="1_vsctn"]
+
+[resource]
+script = ExtResource("1_vsctn")
+scans_per_minute = 0.1
+metadata/_custom_type_script = "uid://c4y2uu1itc40y"

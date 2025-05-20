@@ -24,7 +24,7 @@ var speed_selection_nodes: Array[TextureRect]
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_NAME)
-	add_to_group(GlobalStrings.UI_GROUP)
+	add_to_group(DeserExpedition.Groups.UI)
 
 
 func _ready() -> void:
@@ -34,7 +34,7 @@ func _ready() -> void:
 	#day_night_cycle.minutes_updated.connect(_update_time_label)
 	
 	# not disconnecting, but should not be important, unless we are gonna be unloading this UI scene
-	_player = get_tree().get_first_node_in_group(GlobalStrings.PLAYER_GROUP)
+	_player = get_tree().get_first_node_in_group(DeserExpedition.Groups.PLAYER)
 	var water_storage := WaterStorage.core().get_from(_player) as WaterStorage
 	water_storage.water_updated.connect(_update_water_label)
 	_update_water_label(water_storage.current_water, water_storage.water_capacity)

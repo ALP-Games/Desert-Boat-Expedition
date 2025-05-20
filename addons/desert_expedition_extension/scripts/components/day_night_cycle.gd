@@ -7,8 +7,8 @@ signal day_updated(int)
 signal morning_started
 signal night_started
 
-const MINUTES_IN_HOUR := 60
-const DEFAULT_HOURS_IN_DAY := 24.0
+const MINUTES_IN_HOUR: int = 60
+const DEFAULT_HOURS_IN_DAY: float = 24.0
 
 enum TimeOfDay {
 	MORNING,
@@ -18,7 +18,7 @@ enum TimeOfDay {
 @export_group("World time parameters")
 @export var hours_in_day: float = DEFAULT_HOURS_IN_DAY:
 	get:
-		return _minutes_in_a_day / MINUTES_IN_HOUR
+		return (_minutes_in_a_day as float) / MINUTES_IN_HOUR
 	set(value):
 		_minutes_in_a_day = MINUTES_IN_HOUR * value
 ## how much realtime has to pass for a minute to pass
@@ -26,24 +26,24 @@ enum TimeOfDay {
 
 @export_group("Day Configuration")
 @export_subgroup("Morning start")
-@export var morning_hour: int = 0:
+@export var morning_hour: int:
 	get:
 		return _morning_timestamp / MINUTES_IN_HOUR
 	set(value):
 		_morning_timestamp = value * MINUTES_IN_HOUR + morning_minute
-@export var morning_minute: int = 0:
+@export var morning_minute: int:
 	get:
 		return _morning_timestamp % MINUTES_IN_HOUR
 	set(value):
 		_morning_timestamp = morning_hour * MINUTES_IN_HOUR + value
 var _morning_timestamp: int = 0
 @export_subgroup("Night start")
-@export var night_hour: int = 0:
+@export var night_hour: int:
 	get:
 		return _night_timestamp / MINUTES_IN_HOUR
 	set(value):
 		_night_timestamp = value * MINUTES_IN_HOUR + night_minute
-@export var night_minute: int = 0:
+@export var night_minute: int:
 	get:
 		return _night_timestamp % MINUTES_IN_HOUR
 	set(value):

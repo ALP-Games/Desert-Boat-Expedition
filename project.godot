@@ -31,12 +31,13 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_extension_core_gdscript/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/desert_expedition_extension/plugin.cfg", "res://addons/godot_extension_core_gdscript/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
 "res://addons/": "gray",
+"res://addons/desert_expedition_extension/": "teal",
 "res://addons/godot_extension_core_gdscript/": "blue",
 "res://addons/godot_extension_core_gdscript/Generated/": "red",
 "res://ui/": "green"
@@ -45,6 +46,7 @@ folder_colors={
 [global_group]
 
 Player="group for the player object"
+UI="Group for UI elements"
 
 [physics]
 
