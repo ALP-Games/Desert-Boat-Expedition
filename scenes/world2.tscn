@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://hrt8p7fyb26p"]
 
-[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/world.gd" id="1_7d436"]
+[ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://addons/desert_expedition_extension/scripts/world.gd" id="1_7d436"]
 [ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://addons/desert_expedition_extension/scripts/components/day_night_cycle.gd" id="2_1te1p"]
 [ext_resource type="PackedScene" uid="uid://cq0bccqd46so1" path="res://scenes/world_environment.tscn" id="3_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="4_q5uyg"]
@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bcblh2yvdnteg" path="res://scenes/artificial_ground.tscn" id="11_hvnw1"]
 [ext_resource type="PackedScene" uid="uid://buuj7l6edb5o6" path="res://scenes/oasis.tscn" id="11_r15pr"]
 [ext_resource type="Script" uid="uid://bna46nv7twv8m" path="res://addons/desert_expedition_extension/scripts/components/component_initializer.gd" id="12_hixyl"]
-[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/icomponent_initializer.gd" id="13_086et"]
-[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/water_storage_initializer.gd" id="14_i86qd"]
+[ext_resource type="Script" uid="uid://by2w5c5t0xpu4" path="res://addons/desert_expedition_extension/scripts/icomponent_initializer.gd" id="13_086et"]
+[ext_resource type="Script" uid="uid://vnoephrpf5s1" path="res://addons/desert_expedition_extension/scripts/water_storage_initializer.gd" id="14_i86qd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
 albedo_color = Color(1, 0.893037, 0.651846, 1)

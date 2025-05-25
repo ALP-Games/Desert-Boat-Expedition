@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cyjkapqiqydud"]
 
-[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/world.gd" id="1_k0juu"]
+[ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://addons/desert_expedition_extension/scripts/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://addons/desert_expedition_extension/scripts/components/day_night_cycle.gd" id="2_71j4m"]
 [ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://addons/desert_expedition_extension/scripts/follow_camrea.gd" id="2_rwgxs"]
@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b0qo82mla5uxw" path="res://ui/crew_overview_ui.tscn" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://buuj7l6edb5o6" path="res://scenes/oasis.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://bna46nv7twv8m" path="res://addons/desert_expedition_extension/scripts/components/component_initializer.gd" id="9_e3hyu"]
-[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/icomponent_initializer.gd" id="10_q5onr"]
-[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/water_storage_initializer.gd" id="11_jhx03"]
+[ext_resource type="Script" uid="uid://by2w5c5t0xpu4" path="res://addons/desert_expedition_extension/scripts/icomponent_initializer.gd" id="10_q5onr"]
+[ext_resource type="Script" uid="uid://vnoephrpf5s1" path="res://addons/desert_expedition_extension/scripts/water_storage_initializer.gd" id="11_jhx03"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
 

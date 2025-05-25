@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dmc88mf4o0qp3" path="res://addons/desert_expedition_extension/scripts/components/ui_controller.gd" id="1_03y04"]
 [ext_resource type="Script" uid="uid://d2w5epd8574bi" path="res://addons/desert_expedition_extension/scripts/extended_rigid_body_3d.gd" id="1_83dbu"]
-[ext_resource type="Script" uid="uid://bqov1a88q4e4s" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
+[ext_resource type="Script" uid="uid://cjvofhx2rcldu" path="res://addons/godot_extension_core_gdscript/Generated/Input/local_input_poll_component.gd" id="1_q631a"]
 [ext_resource type="Script" uid="uid://c652vgg0rml8m" path="res://addons/desert_expedition_extension/scripts/components/durability_component.gd" id="2_83dbu"]
-[ext_resource type="Script" uid="uid://51cshaltvw8l" path="res://addons/godot_extension_core_gdscript/Generated/Input/iinput_polling_resource.gd" id="2_tfsc7"]
+[ext_resource type="Script" uid="uid://bto8uidplj8g5" path="res://addons/godot_extension_core_gdscript/Generated/Input/iinput_polling_resource.gd" id="2_tfsc7"]
 [ext_resource type="Script" uid="uid://j0erwxd8lwuc" path="res://addons/desert_expedition_extension/scripts/components/durability_degrader.gd" id="3_xifwb"]
 [ext_resource type="Resource" uid="uid://b7heq3x6sqytr" path="res://resources/controls/mkb_poll.tres" id="4_7j21i"]
 [ext_resource type="Script" uid="uid://cms5oajqm81q0" path="res://addons/desert_expedition_extension/scripts/components/ship_movement.gd" id="5_gudjc"]
