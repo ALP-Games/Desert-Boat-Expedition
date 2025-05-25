@@ -28,6 +28,7 @@ window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
@@ -47,6 +48,10 @@ folder_colors={
 
 Player="group for the player object"
 UI="Group for UI elements"
+
+[layer_names]
+
+3d_physics/layer_24="Oasis"
 
 [physics]
 

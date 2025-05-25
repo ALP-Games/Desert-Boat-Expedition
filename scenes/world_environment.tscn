@@ -2,7 +2,7 @@
 
 [ext_resource type="Environment" uid="uid://lc23abnon5ux" path="res://resources/environments/WorldDayEnviorment.tres" id="1_dq0xd"]
 [ext_resource type="AnimationLibrary" uid="uid://d7pgocx4ejcu" path="res://Assets/Animations/Day_Night.res" id="2_ki1nh"]
-[ext_resource type="Script" uid="uid://8hv16rtxk88t" path="res://addons/desert_expedition_extension/scripts/day_night_visual_controller.gd" id="2_qdl06"]
+[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/day_night_visual_controller.gd" id="2_qdl06"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jlm5j"]
 exposure_multiplier = 0.822

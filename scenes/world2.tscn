@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://addons/desert_expedition_extension/scripts/components/day_night_cycle.gd" id="2_1te1p"]
 [ext_resource type="PackedScene" uid="uid://cq0bccqd46so1" path="res://scenes/world_environment.tscn" id="3_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://dawi8sppkthck" path="res://scenes/ship.tscn" id="4_q5uyg"]
-[ext_resource type="Script" path="res://addons/desert_expedition_extension/scripts/follow_camrea.gd" id="5_r0a0i"]
+[ext_resource type="Script" uid="uid://bd4rgep5lmrpg" path="res://addons/desert_expedition_extension/scripts/follow_camrea.gd" id="5_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://bw4savqry1x4e" path="res://ui/gameplay_ui.tscn" id="6_hvnw1"]
 [ext_resource type="Texture2D" uid="uid://c7431itllior6" path="res://Textures/sand_albedo.png" id="7_jlm5j"]
 [ext_resource type="PackedScene" uid="uid://b0qo82mla5uxw" path="res://ui/crew_overview_ui.tscn" id="7_q5uyg"]
@@ -768,6 +768,14 @@ object_to_follow = NodePath("../Ship")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.7251, 4.98253, -43.8181)
 
 [node name="ComponentInitializer" type="Node" parent="Oasis"]
+script = ExtResource("12_hixyl")
+component_initializers = Array[ExtResource("13_086et")]([SubResource("Resource_trmnl")])
+metadata/_custom_type_script = "uid://bna46nv7twv8m"
+
+[node name="Oasis2" parent="." instance=ExtResource("11_r15pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.593, 4.98253, 52.7403)
+
+[node name="ComponentInitializer" type="Node" parent="Oasis2"]
 script = ExtResource("12_hixyl")
 component_initializers = Array[ExtResource("13_086et")]([SubResource("Resource_trmnl")])
 metadata/_custom_type_script = "uid://bna46nv7twv8m"
