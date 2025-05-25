@@ -1,8 +1,9 @@
 class_name NavigatorProfession extends IProfession
 
-@export var detection_range: float = 200.0
+@export var detection_range: float = 200.0 # this will be increased to a much bigger number, probably
 ## In game minute
 @export var scans_per_minute: float = 0.1 # maybe have some kind of variance? like on random the scans would be performed every 0,5 to 1,5 minutes
+@export var effort_for_work: float = 0.3
 @export var oasis_pointer_scene: PackedScene = preload("res://addons/desert_expedition_extension/scenes/oasis_pointer.tscn")
 
 var _navigator_node: Node3D
@@ -60,6 +61,5 @@ func perform_work(delta: float, crew_member: CrewMember, player_node: Node) -> f
 			var pointer := _instantiated_pointers[index]
 			pointer.visible = true
 			(FaceTargetComp.core().get_from(pointer) as FaceTargetComp).target = areas[index]
-		print("Detected areas - ", areas)
-		
+		return effort_for_work
 	return 0.0
