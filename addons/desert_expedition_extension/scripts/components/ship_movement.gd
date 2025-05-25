@@ -17,11 +17,6 @@ signal acceleration_variant_changed(previous: int, current: int)
 @export_range(0, 180, 0.001, "radians_as_degrees") var max_pitch: float = deg_to_rad(70.0)
 @export_range(0, 180, 0.001, "radians_as_degrees") var max_yaw: float = deg_to_rad(15.0)
 
-@onready var front_left := $"../FrontLeft"
-@onready var front_right := $"../FrontRight"
-@onready var back_left := $"../BackLeft"
-@onready var back_right := $"../BackRight"
-
 # Suspension constants
 var suspension_strength: float = 250.0
 var damping_strength: float = 100.0
@@ -82,25 +77,6 @@ func _physics_process(delta: float) -> void:
 			var inverse_inertia := PhysicsServer3D.body_get_direct_state(_parent.get_rid()).inverse_inertia.y
 			var torque_to_apply: float = turn_input * turn_acceleration * turn_factor / inverse_inertia
 			_parent.apply_torque(Vector3(0.0, torque_to_apply, 0.0))
-	
-	
-	#var ray_casts = [front_left, front_right, back_left, back_right]
-	#
-	#for ray: RayCast3D in ray_casts:
-		#if ray.is_colliding():
-			#var hit_position := ray.get_collision_point()
-			#var hit_distance := ray.global_transform.origin.distance_to(hit_position)
-			#var compression := rest_length - hit_distance
-			#compression = clamp(compression, 0, rest_length)
-			#
-			#var world_point := ray.global_transform.origin
-			#var rel_pos := world_point - _parent.global_transform.origin
-			#var velocity_at_point := _parent.linear_velocity + _parent.angular_velocity.cross(rel_pos)
-			#var vertical_velocity := velocity_at_point.dot(Vector3.UP)
-			#
-			#var spring_force = Vector3.UP * (compression * suspension_strength - vertical_velocity * damping_strength)
-			#_parent.apply_force(spring_force, ray.global_position)
-			#print("Spring force - ", spring_force)
 	
 	
 	if _on_floor:

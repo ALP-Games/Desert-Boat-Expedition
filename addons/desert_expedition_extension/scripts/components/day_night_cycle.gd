@@ -21,6 +21,8 @@ enum TimeOfDay {
 		return (_minutes_in_a_day as float) / MINUTES_IN_HOUR
 	set(value):
 		_minutes_in_a_day = MINUTES_IN_HOUR * value
+
+# TODO: if this will be changing, need to emit a signal
 ## how much realtime has to pass for a minute to pass
 @export var minute_time_scale := 0.1
 
@@ -97,8 +99,13 @@ func _ready() -> void:
 	#print("Minutes elapsed - ", _minutes_elapsed)
 	#print("Current day - {0}; Current time {1}:{2}".format([_current_day, current_hours, current_minutes]))
 
-
-## Maybe use a timer node, you degenerate?
+# TODO: review below
+## Because I've put the timer into process function
+## It is probably better to use a Timer for better precision
+## But this will always react to real time changes much better
+## But other game functions do time updating in the physics_process
+## So maybe actually better to move to physics process fo consistency?
+## And have a fake timer in process?
 func _process(delta: float) -> void:
 	_realtime_elapsed += delta
 	if get_minutes_passed() >= _minutes_in_a_day:

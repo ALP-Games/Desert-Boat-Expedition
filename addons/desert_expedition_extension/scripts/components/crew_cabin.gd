@@ -42,11 +42,8 @@ func _ready() -> void:
 		crew_member.initialize(_parent)
 
 
-func _process(delta: float) -> void:
-	_process_water(delta)
-
-
 func _physics_process(delta: float) -> void:
+	_process_water(delta)
 	_process_crew_members(delta)
 
 
