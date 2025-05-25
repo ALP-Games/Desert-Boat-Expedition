@@ -25,6 +25,6 @@ func perform_work(delta: float, crew_member: CrewMember, player_node: Node) -> f
 		return 0.0
 	
 	var durability_comp: DurabilityComponent = DurabilityComponent.core().get_from(player_node)
-	var current_repair := repair_points_per_minute * crew_member.get_current_efficiency() * delta / _day_night_cycle.minute_time_scale
+	var current_repair := repair_points_per_minute * crew_member.get_efficiency() * delta / _day_night_cycle.minute_time_scale
 	var repaired_durability := durability_comp.add_durability(current_repair)
 	return effort_for_work * repaired_durability / current_repair

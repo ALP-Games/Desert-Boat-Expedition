@@ -15,7 +15,7 @@ func initialize(crew_member: CrewMember, player_node: Node) -> void:
 	var world: World = player_node.get_tree().get_first_node_in_group(World.GROUP_NAME)
 	var day_night_cycle: DayNightCycle = DayNightCycle.core().get_from(world)
 	job_callable = func()->void:
-		var current_water_efficiency := 1.0 - (water_efficiency * crew_member.get_current_efficiency())
+		var current_water_efficiency := 1.0 - (water_efficiency * crew_member.get_efficiency())
 		# TODO: maybe fatigue check should be done before we calc efficiency
 		effort_expanded = effort_for_work
 		var crew_cabin: CrewCabin = CrewCabin.core().get_from(player_node)

@@ -60,7 +60,7 @@ func _ready() -> void:
 func _update_stats() -> void:
 	if not _crew_member:
 		return
-	efficiency_ui.set_progress(_crew_member.get_current_efficiency())
+	efficiency_ui.set_progress(_crew_member.get_efficiency())
 
 
 func _on_water_ration_change(_delta: int) -> void:

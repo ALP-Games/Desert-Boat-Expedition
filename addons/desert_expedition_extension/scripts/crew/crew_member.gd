@@ -22,7 +22,7 @@ var _water_consumption_multiplier: float = 1.0
 ## Returns float value
 ## 1.0 means the efficiency is at 100%
 ## 0.0 means the efficiency is at 0%
-func get_current_efficiency() -> float:
+func get_efficiency() -> float:
 	return _current_efficiency / efficiency_max
 
 

@@ -45,6 +45,7 @@ func perform_work(delta: float, crew_member: CrewMember, player_node: Node) -> f
 	_detection_cooldown += delta / _day_night_cycle.minute_time_scale * scans_per_minute
 	if _detection_cooldown >= 1.0:
 		_detection_cooldown -= 1.0
+		_detection_shape.radius = detection_range * crew_member.get_efficiency()
 		var areas := _detection_area.get_overlapping_areas()
 		var pointer_defficit := areas.size() - _instantiated_pointers.size()
 		if pointer_defficit > 0:
