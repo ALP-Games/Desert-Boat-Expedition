@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://hrt8p7fyb26p"]
+[gd_scene load_steps=31 format=3 uid="uid://hrt8p7fyb26p"]
 
 [ext_resource type="Script" uid="uid://bfv3sxdkcs6j8" path="res://addons/desert_expedition_extension/scripts/world.gd" id="1_7d436"]
 [ext_resource type="Script" uid="uid://bh5v78aga41pd" path="res://addons/desert_expedition_extension/scripts/components/day_night_cycle.gd" id="2_1te1p"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://bna46nv7twv8m" path="res://addons/desert_expedition_extension/scripts/components/component_initializer.gd" id="12_hixyl"]
 [ext_resource type="Script" uid="uid://by2w5c5t0xpu4" path="res://addons/desert_expedition_extension/scripts/icomponent_initializer.gd" id="13_086et"]
 [ext_resource type="Script" uid="uid://vnoephrpf5s1" path="res://addons/desert_expedition_extension/scripts/water_storage_initializer.gd" id="14_i86qd"]
+[ext_resource type="PackedScene" uid="uid://bfx3l2k3i7sw5" path="res://Assets/Rocks/Stone.glb" id="15_086et"]
+[ext_resource type="PackedScene" uid="uid://bl6n6vaypsfe3" path="res://Assets/Rocks/Stone_001.glb" id="16_i86qd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
 albedo_color = Color(1, 0.893037, 0.651846, 1)
@@ -779,3 +781,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.593, 4.98253, 52.7403)
 script = ExtResource("12_hixyl")
 component_initializers = Array[ExtResource("13_086et")]([SubResource("Resource_trmnl")])
 metadata/_custom_type_script = "uid://bna46nv7twv8m"
+
+[node name="Stone2" parent="." instance=ExtResource("15_086et")]
+transform = Transform3D(0.948887, 0.116176, 0.293456, 0, 0.929789, -0.368092, -0.315616, 0.349278, 0.882265, 136.351, 2.22764, -40.8792)
+
+[node name="Stone_0012" parent="." instance=ExtResource("16_i86qd")]
+transform = Transform3D(0.767539, 0.0672583, -0.637464, 0.121465, 0.961201, 0.247666, 0.629389, -0.267523, 0.72959, 269.276, -3.42748, -46.7737)
+
+[node name="Stone3" parent="." instance=ExtResource("15_086et")]
+transform = Transform3D(-0.454224, -0.327929, -0.828338, 0.0874151, 0.908897, -0.407756, 0.886589, -0.257622, -0.384177, 261.298, -2.56994, 51.7086)
+
+[node name="Stone4" parent="." instance=ExtResource("15_086et")]
+transform = Transform3D(0.281439, 0.579723, -0.764665, -0.308223, 0.809263, 0.500092, 0.908731, 0.0949418, 0.406442, 309.842, -1.41854, 51.7086)
+
+[node name="Stone_0013" parent="." instance=ExtResource("16_i86qd")]
+transform = Transform3D(-0.988455, 0.139898, -0.0581731, 0.129765, 0.97989, 0.151578, 0.0782087, 0.142279, -0.986732, 170.768, 1.37009, 149.303)
